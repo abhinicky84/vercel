@@ -1,0 +1,400 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEM Forms AI Assistant Capabilities</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Syne:wght@700;800&display=swap');
+
+        :root {
+            --bg-dark: #0F0F1A;
+            --bg-card: #1A1A2E;
+            --text-light: #F0F0F0;
+            --text-secondary: #a9a9b3;
+            --accent-red: #FA0F00;
+            --accent-green-bg: rgba(45, 211, 111, 0.08);
+            --accent-green-border: rgba(45, 211, 111, 0.3);
+            --accent-amber-bg: rgba(255, 193, 7, 0.08);
+            --accent-amber-border: rgba(255, 193, 7, 0.3);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding-top: 64px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── Navbar ── */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(15,15,26,0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            z-index: 1000;
+        }
+        .navbar-inner {
+            display: flex; justify-content: space-between; align-items: center;
+            height: 64px; max-width: 1200px; margin: 0 auto; padding: 0 24px;
+        }
+        .logo {
+            font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800;
+            text-decoration: none; color: var(--text-light); letter-spacing: -0.5px;
+        }
+        .logo span { color: var(--accent-red); }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none;
+            margin-left: 32px; font-weight: 500; font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: #fff; }
+
+        /* ── Hero ── */
+        #overview {
+            min-height: calc(100vh - 64px);
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            background: radial-gradient(ellipse at 60% 40%, #2a0a3a 0%, #0F0F1A 65%);
+            padding: 60px 24px;
+        }
+        .hero-content { max-width: 780px; }
+        .hero-eyebrow {
+            display: inline-block;
+            background: rgba(250,15,0,0.15); border: 1px solid rgba(250,15,0,0.4);
+            color: #FA6050; font-size: 0.85rem; font-weight: 600;
+            padding: 6px 16px; border-radius: 99px; margin-bottom: 28px;
+            letter-spacing: 0.5px; text-transform: uppercase;
+        }
+        .hero-content h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 800; line-height: 1.05; margin: 0 0 24px;
+        }
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--text-secondary); max-width: 580px;
+            margin: 0 auto 40px; line-height: 1.7;
+        }
+        .cta-btn {
+            display: inline-block; background: var(--accent-red);
+            color: #fff; padding: 15px 34px; border-radius: 8px;
+            text-decoration: none; font-weight: 700; font-size: 1rem;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(250,15,0,0.35);
+        }
+
+        /* ── Section Common ── */
+        section { padding: 110px 0; }
+        .section-tag {
+            display: block; text-align: center; font-size: 0.8rem;
+            font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--accent-red); margin-bottom: 12px;
+        }
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            text-align: center; margin: 0 0 16px; line-height: 1.1;
+        }
+        .section-sub {
+            text-align: center; color: var(--text-secondary);
+            max-width: 640px; margin: 0 auto 72px;
+            font-size: 1.05rem; line-height: 1.7;
+        }
+
+        /* ── How It Works ── */
+        #how-it-works { background: #111122; }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .step-card {
+            background: var(--bg-card);
+            border-radius: 14px; padding: 28px;
+            border: 1px solid rgba(255,255,255,0.07);
+            display: flex; flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .step-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+        }
+        .step-num {
+            font-family: 'Syne', sans-serif; font-size: 0.8rem;
+            font-weight: 800; letter-spacing: 1px;
+            color: var(--accent-red); margin-bottom: 12px;
+        }
+        .step-card h3 {
+            font-family: 'Syne', sans-serif; font-size: 1.35rem;
+            margin: 0 0 14px; line-height: 1.3;
+        }
+        .step-card > p {
+            color: var(--text-secondary); line-height: 1.65;
+            font-size: 0.95rem; margin: 0 0 24px; flex-grow: 1;
+        }
+
+        /* Browser Mockup */
+        .mockup {
+            border-radius: 10px; overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .mockup-bar {
+            background: #2a2a35; padding: 9px 12px;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .dot { width: 11px; height: 11px; border-radius: 50%; }
+        .d-r { background: #ff5f56; }
+        .d-y { background: #ffbd2e; }
+        .d-g { background: #27c93f; }
+        .url-bar {
+            flex: 1; background: #1e1e28; border-radius: 4px;
+            padding: 4px 10px; font-size: 0.75rem; color: #888;
+            font-family: monospace; text-align: center; margin-left: 6px;
+        }
+        .mockup img { width: 100%; display: block; }
+        .caption {
+            font-size: 0.82rem; color: var(--text-secondary);
+            text-align: center; margin-top: 12px; font-style: italic;
+        }
+
+        /* ── Capabilities ── */
+        #capabilities { background: var(--bg-dark); }
+        .cap-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 28px; margin-bottom: 48px;
+        }
+        .cap-card {
+            border-radius: 14px; padding: 32px;
+            border: 1px solid;
+        }
+        .cap-card.green {
+            background: var(--accent-green-bg);
+            border-color: var(--accent-green-border);
+        }
+        .cap-card.amber {
+            background: var(--accent-amber-bg);
+            border-color: var(--accent-amber-border);
+        }
+        .cap-card h3 {
+            font-family: 'Syne', sans-serif; font-size: 1.5rem;
+            margin: 0 0 24px;
+        }
+        .cap-card ul { list-style: none; padding: 0; margin: 0; }
+        .cap-card ul li {
+            padding-left: 28px; position: relative;
+            margin-bottom: 14px; color: var(--text-secondary);
+            line-height: 1.55; font-size: 0.97rem;
+        }
+        .cap-card.green ul li::before {
+            content: '✓'; position: absolute; left: 0; top: 1px;
+            color: #2DD36F; font-weight: 700; font-size: 1rem;
+        }
+        .cap-card.amber ul li::before {
+            content: '›'; position: absolute; left: 4px; top: 0;
+            color: #FFC107; font-weight: 700; font-size: 1.2rem;
+        }
+
+        .insight {
+            background: var(--bg-card); border-radius: 12px;
+            padding: 32px 36px; max-width: 860px; margin: 0 auto;
+            border-left: 5px solid var(--accent-red);
+        }
+        .insight strong {
+            display: block; font-size: 1rem; margin-bottom: 10px; color: #fff;
+        }
+        .insight p {
+            margin: 0; color: var(--text-secondary); line-height: 1.75;
+            font-size: 1rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: #08080f; padding: 36px 24px;
+            text-align: center; color: #555; font-size: 0.88rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        footer span { color: var(--accent-red); }
+
+        /* ── Animations ── */
+        .fade-in {
+            opacity: 0; transform: translateY(22px);
+            transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── Responsive ── */
+        @media (max-width: 960px) {
+            .steps-grid { grid-template-columns: 1fr; }
+            .cap-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .navbar-inner { flex-direction: column; height: auto; padding: 14px 20px; }
+            .nav-links { margin-top: 10px; }
+            .nav-links a { margin: 0 10px; }
+            body { padding-top: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<header class="navbar">
+    <div class="navbar-inner">
+        <a href="#overview" class="logo">AEM FORMS <span>AI</span></a>
+        <nav class="nav-links">
+            <a href="#overview">Overview</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#capabilities">Capabilities</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<!-- ═══ SECTION 1 — HERO ═══ -->
+<section id="overview">
+    <div class="hero-content fade-in">
+        <span class="hero-eyebrow">AEM Forms Experience Builder</span>
+        <h1>Build Forms Faster&nbsp;with&nbsp;AI</h1>
+        <p>Meet the AEM Forms Experience Builder — an AI-powered assistant that transforms a simple prompt into a fully structured form in seconds.</p>
+        <a href="#how-it-works" class="cta-btn">See How It Works ↓</a>
+    </div>
+</section>
+
+<!-- ═══ SECTION 2 — HOW IT WORKS ═══ -->
+<section id="how-it-works">
+    <div class="container">
+        <span class="section-tag fade-in">The Workflow</span>
+        <h2 class="fade-in">From Prompt to Form —<br>In Three Steps</h2>
+        <p class="section-sub fade-in">Just describe the form you need. The AI Agent handles the rest — analysing context, structuring fields, and scaffolding everything instantly.</p>
+
+        <div class="steps-grid">
+
+            <!-- Step 1 -->
+            <div class="step-card fade-in" style="transition-delay:0.1s">
+                <div class="step-num">STEP 01</div>
+                <h3>💬 Describe Your Form</h3>
+                <p>Simply type your requirement in natural language into the AEM Forms AI Assistant. You can even paste a reference URL for context. The AI analyses the intent and intelligently structures the form fields needed.</p>
+                <div class="mockup">
+                    <div class="mockup-bar">
+                        <span class="dot d-r"></span>
+                        <span class="dot d-y"></span>
+                        <span class="dot d-g"></span>
+                        <div class="url-bar">AEM Forms AI Assistant</div>
+                    </div>
+                    <img src="use-assistant.jpg" alt="Entering a prompt into AEM Forms AI Assistant">
+                </div>
+                <p class="caption">Entering your prompt into the AI Assistant</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card fade-in" style="transition-delay:0.2s">
+                <div class="step-num">STEP 02</div>
+                <h3>🎨 Select Template &amp; Theme</h3>
+                <p>Once it understands your request, the Assistant prompts you to select a Template and a Theme from available defaults via intuitive dropdown menus — ensuring the form scaffolds within your existing AEM environment instantly.</p>
+                <div class="mockup">
+                    <div class="mockup-bar">
+                        <span class="dot d-r"></span>
+                        <span class="dot d-y"></span>
+                        <span class="dot d-g"></span>
+                        <div class="url-bar">AEM Forms — Template &amp; Theme</div>
+                    </div>
+                    <img src="input-assistant-template-theme.jpg" alt="Selecting template and theme in AEM Forms">
+                </div>
+                <p class="caption">Choosing your Template and Theme defaults</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card fade-in" style="transition-delay:0.3s">
+                <div class="step-num">STEP 03</div>
+                <h3>✅ Form is Generated</h3>
+                <p>The AI Agent instantly generates a complete form with all relevant input fields, validation rules, and a Submit CTA — ready for review within AEM Forms. No manual field configuration required.</p>
+                <div class="mockup">
+                    <div class="mockup-bar">
+                        <span class="dot d-r"></span>
+                        <span class="dot d-y"></span>
+                        <span class="dot d-g"></span>
+                        <div class="url-bar">AEM Forms — Generated Form</div>
+                    </div>
+                    <img src="assistant-created-form.jpg" alt="AI-generated form output in AEM">
+                </div>
+                <p class="caption">The complete form generated by the AI Agent</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══ SECTION 3 — CAPABILITIES ═══ -->
+<section id="capabilities">
+    <div class="container">
+        <span class="section-tag fade-in">Division of Responsibility</span>
+        <h2 class="fade-in">What AI Delivers — and Where<br>Your Team Takes Over</h2>
+        <p class="section-sub fade-in">The AI Agent is a powerful accelerator. Here's exactly how the work is divided between the assistant and your development team.</p>
+
+        <div class="cap-grid">
+
+            <div class="cap-card green fade-in">
+                <h3>✅ What the AI Agent Does</h3>
+                <ul>
+                    <li>Analyses the prompt or reference URL to understand the form's purpose</li>
+                    <li>Identifies all required input fields and appropriate field types</li>
+                    <li>Applies field-level validations automatically</li>
+                    <li>Scaffolds the form using the selected default template and theme</li>
+                    <li>Generates a Submit CTA with the defined submission link</li>
+                </ul>
+            </div>
+
+            <div class="cap-card amber fade-in" style="transition-delay:0.15s">
+                <h3>🛠️ What Your Dev Team Customises</h3>
+                <ul>
+                    <li>Advanced look &amp; feel beyond default themes and CSS</li>
+                    <li>Custom branding, colours, typography, and layout refinements</li>
+                    <li>Backend data submission logic and API integrations</li>
+                    <li>Complex conditional logic and multi-step form flows</li>
+                    <li>Accessibility enhancements and performance tuning</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="insight fade-in">
+            <strong>💡 Key Insight</strong>
+            <p>The AEM Forms AI Assistant is a powerful accelerator — it handles the structural heavy lifting so your development team can focus purely on customisation, integration, and delivering exceptional user experiences.</p>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 <span>Adobe Inc.</span> All rights reserved. &nbsp;|&nbsp; AEM Forms Experience Builder — Powered by Adobe AI</p>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+
+</body></html>

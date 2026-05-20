@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NFL Fan Engagement Platform Roadmap</title>
+<style>
+:root {
+  --bg:#07111f; --panel:rgba(255,255,255,0.08);
+  --text:#f4f7fb; --muted:#aeb9c8; --grid:rgba(255,255,255,0.12);
+  --p1:#ff6070; --p2:#4de8b0; --p3:#c099ff;
+  --p4:#53b6ff; --p5:#ffb347;
+  --disc:#4a9eff; --disc2:#7dc4ff;
+  --qa:#ffd166;  --qa2:#ffe896;
+  --go:#00d97e;  --go2:#7fffc4;
+  --line:rgba(255,255,255,0.22);
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:Inter,Arial,sans-serif;
+  background:radial-gradient(circle at 15% 10%,rgba(83,182,255,.18),transparent 28%),
+             radial-gradient(circle at 90% 20%,rgba(201,156,255,.18),transparent 26%),
+             linear-gradient(135deg,#07111f 0%,#0c1728 48%,#101827 100%);
+  color:var(--text);min-height:100vh;padding:42px;}
+.page{max-width:1320px;margin:0 auto;}
+.eyebrow{color:var(--muted);font-size:13px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px;}
+h1{font-size:44px;line-height:1.05;margin:0 0 14px;letter-spacing:-.04em;}
+.subtitle{color:var(--muted);max-width:960px;font-size:16px;line-height:1.6;margin-bottom:28px;}
+
+.pimg{margin-bottom:28px;border-radius:20px;overflow:hidden;
+      border:1px solid rgba(255,255,255,.1);box-shadow:0 22px 70px rgba(0,0,0,.4);}
+.pimg img{width:100%;display:block;}
+
+.gwrap{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);
+       border-radius:28px;padding:24px;box-shadow:0 28px 90px rgba(0,0,0,.32);overflow-x:auto;}
+.gtitle{display:flex;justify-content:space-between;align-items:flex-start;
+        gap:20px;margin-bottom:22px;flex-wrap:wrap;}
+.gtitle h2{margin:0 0 4px;font-size:26px;letter-spacing:-.03em;}
+.gtitle .sub{color:var(--muted);font-size:13px;margin:0;}
+
+.legend{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.li{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);}
+.ls{width:30px;height:12px;border-radius:999px;flex-shrink:0;}
+
+/* 13-week grid */
+.timeline{display:grid;grid-template-columns:290px repeat(13,1fr);
+          border-top:1px solid var(--line);border-left:1px solid var(--line);min-width:950px;}
+.month{grid-column:span 4;display:flex;align-items:center;justify-content:center;
+       font-weight:700;color:#dbe8f7;background:rgba(255,255,255,.05);
+       height:50px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+       border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+.month.m1{grid-column:span 1;font-size:11px;letter-spacing:.04em;}
+.blank{background:rgba(255,255,255,.04);
+       border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+.week{display:flex;align-items:center;justify-content:center;color:var(--muted);
+      font-size:11px;background:rgba(255,255,255,.025);height:38px;
+      border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+
+.label{padding:12px 14px;display:flex;flex-direction:column;justify-content:center;
+       background:rgba(255,255,255,.045);min-height:130px;
+       border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+.label.tall{min-height:235px;}
+.ll{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.ll img{width:26px;height:26px;border-radius:7px;object-fit:cover;
+        flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.4);}
+.label strong{font-size:13px;line-height:1.25;}
+.label .desc{color:var(--muted);font-size:11px;line-height:1.4;}
+
+.track{position:relative;min-height:130px;grid-column:span 13;
+       background-image:linear-gradient(to right,var(--grid) 1px,transparent 1px);
+       background-size:calc(100%/13) 100%;border-bottom:1px solid var(--line);}
+.track.tall{min-height:235px;}
+
+.bar{position:absolute;border-radius:999px;display:flex;align-items:center;
+     justify-content:center;font-weight:700;color:#07111f;
+     box-shadow:0 4px 14px rgba(0,0,0,.28);overflow:hidden;white-space:nowrap;}
+.bn{height:26px;font-size:11px;padding:0 10px;}
+.bs{height:22px;font-size:9.5px;padding:0 8px;}
+.bg{height:18px;font-size:8px;padding:0 8px;font-weight:800;}
+
+.dsc{background:linear-gradient(90deg,var(--disc),var(--disc2));}
+.qa {background:linear-gradient(90deg,var(--qa),  var(--qa2));}
+.gl {background:linear-gradient(90deg,var(--go),  var(--go2));}
+.b1{background:linear-gradient(90deg,var(--p1),#ffb4bb);}
+.b2{background:linear-gradient(90deg,var(--p2),#bbffe1);}
+.b3{background:linear-gradient(90deg,var(--p3),#e4cbff);}
+.b4{background:linear-gradient(90deg,var(--p4),#b3daff);}
+.b5{background:linear-gradient(90deg,var(--p5),#ffe3b3);}
+
+.tbd{position:absolute;top:22px;height:34px;border-radius:999px;
+     border:2px dashed rgba(255,255,255,.28);background:rgba(255,255,255,.04);
+     display:flex;align-items:center;justify-content:center;
+     color:rgba(255,255,255,.35);font-size:11.5px;font-weight:600;
+     letter-spacing:.07em;white-space:nowrap;}
+
+.pdiv{position:absolute;left:0;right:0;border-top:1px dashed rgba(255,255,255,.14);}
+.plbl{position:absolute;font-size:8.5px;font-weight:700;
+      letter-spacing:.09em;text-transform:uppercase;opacity:.6;}
+
+.notes{display:grid;grid-template-columns:1.15fr 0.85fr;gap:18px;margin-top:22px;}
+.card{background:var(--panel);border:1px solid rgba(255,255,255,.12);
+      border-radius:22px;padding:18px 20px;
+      box-shadow:0 22px 70px rgba(0,0,0,.25);backdrop-filter:blur(18px);}
+.card h3{margin:0 0 10px;font-size:17px;}
+.card ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.6;font-size:13.5px;}
+@media(max-width:920px){body{padding:24px;}.notes{grid-template-columns:1fr;}h1{font-size:32px;}}
+</style>
+</head>
+<body>
+<main class="page">
+
+<div class="eyebrow">NFL Fan Engagement Marketing · Proposed Program Roadmap</div>
+<h1>Five Priority Projects, One Coordinated Delivery Plan</h1>
+
+<!-- ── UPDATED SUBTITLE ── -->
+<p class="subtitle">
+  Recommended sequencing keeps ROI Forms as the AEM foundation project, starts Workfront intake
+  approvals in two phases for DAM governance stabilization, and begins PhotoShelter as a fast early
+  sprint. Audience Selector Tool and Workfront + JIRA Integration are confirmed with planning in progress.
+</p>
+
+<div class="pimg">
+  <img src="prioritization.jpeg" alt="Client Annotated Priority Projects" />
+</div>
+
+<section class="gwrap">
+
+  <div class="gtitle">
+    <div>
+      <h2>Recommended High-Level Gantt</h2>
+      <p class="sub">May 25 – Aug 23, 2026 &nbsp;·&nbsp; 13 Weeks (W1 = May W4, W13 = Aug W4)
+        &nbsp;·&nbsp; Phases vertically staggered &nbsp;·&nbsp; Dates illustrative</p>
+    </div>
+
+    <div class="legend">
+      <div class="li">
+        <span class="ls" style="background:linear-gradient(90deg,#4a9eff,#7dc4ff)"></span>
+        Discovery
+      </div>
+      <div class="li">
+        <span class="ls" style="background:linear-gradient(90deg,#ff6070,#ffb4bb)"></span>
+        Build – ROI Forms
+      </div>
+      <div class="li">
+        <span class="ls" style="background:linear-gradient(90deg,#4de8b0,#bbffe1)"></span>
+        Build – Intake
+      </div>
+      <div class="li">
+        <span class="ls" style="background:linear-gradient(90deg,#c099ff,#e4cbff)"></span>
+        Build – Photoshelter
+      </div>
+      <div class="li">
+        <span class="ls" style="background:linear-gradient(90deg,#ffd166,#ffe896)"></span>
+        QA / UAT
+      </div>
+      <div class="li">
+        <span class="ls" style="background:linear-gradient(90deg,#00d97e,#7fffc4)"></span>
+        &#10003; Go-live
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- MONTH HEADERS  1 + 4 + 4 + 4 = 13 -->
+    <div class="blank"></div>
+    <div class="month m1">May&nbsp;W4</div>
+    <div class="month">June</div>
+    <div class="month">July</div>
+    <div class="month">August</div>
+
+    <!-- WEEK HEADERS -->
+    <div class="blank"></div>
+    <div class="week">W1</div>
+    <div class="week">W2</div><div class="week">W3</div>
+    <div class="week">W4</div><div class="week">W5</div>
+    <div class="week">W6</div><div class="week">W7</div>
+    <div class="week">W8</div><div class="week">W9</div>
+    <div class="week">W10</div><div class="week">W11</div>
+    <div class="week">W12</div><div class="week">W13</div>
+
+    <!--
+    ══════════════════════════════════════════════════
+     13-week position map  (1 wk = 7.6923%)
+     W1 = 0%      W2 = 7.69%   W3 = 15.38%  W4 = 23.08%
+     W5 = 30.77%  W6 = 38.46%  W7 = 46.15%  W8 = 53.85%
+     W9 = 61.54%  W10= 69.23%  W11= 76.92%  W12= 84.62%
+     W13= 92.31%
+     Widths: 1wk=7.69% 2wk=15.38% 3wk=23.08% 7wk=53.85%
+
+     VERTICAL STAGGER (standard rows, min-height 130px):
+       Discovery  top= 8px  (blue)
+       Build      top=42px  (project colour)
+       QA/UAT     top=76px  (yellow)
+       Go-live    top=105px (green)
+    ══════════════════════════════════════════════════
+    -->
+
+    <!-- ═══════════════════════════════════════════
+         ROW 1 · ROI Forms  (AEM logo)  — unchanged
+         Discovery W1 | Build W1–W7 | QA W7–W8 | Go-live end W8
+    ═══════════════════════════════════════════ -->
+    <div class="label">
+      <div class="ll">
+        <img src="aem-logo.jpg" alt="Adobe AEM" />
+        <strong style="color:var(--p1);">#1 · ROI Forms Transformation · AEM</strong>
+      </div>
+      <span class="desc">Centralized AEM Forms foundation, AWS Lambda<br>integration, reusable forms &amp; fan data ingestion</span>
+    </div>
+    <div class="track">
+      <!-- Discovery W1 -->
+      <div class="bar bn dsc" style="top:8px;  left:0%;    width:7.69%;">Discovery</div>
+      <!-- Build W1–W7  (7 wks = 53.85%) -->
+      <div class="bar bn b1"  style="top:42px; left:0%;    width:53.85%;">Build &amp; Integration</div>
+      <!-- QA W7–W8  (2 wks, W7 start=46.15%) -->
+      <div class="bar bn qa"  style="top:76px; left:46.15%;width:15.38%;">QA / UAT</div>
+      <!-- Go-live end W8  (W8 end=61.54%) -->
+      <div class="bar bg gl"  style="top:105px;left:60.5%; width:7%;">&#10003; Go-live</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         ROW 2 · AEM Intake Forms  (WF logo)  2 phases
+         ── UPDATED: starts W3 ──
+         Phase 1 (W3–W4):
+           Discovery W3 | Build W3–W4 | QA W4 | Go-live end W4
+         Phase 2 (W5–W12):
+           Discovery W5 | Build W5–W11 | QA W11–W12 | Go-live end W12
+    ═══════════════════════════════════════════ -->
+    <div class="label tall">
+      <div class="ll">
+        <img src="wf-logo.jpg" alt="Adobe Workfront" />
+        <strong style="color:var(--p2);">#2 · AEM Intake Forms &amp; Workfront Approval</strong>
+      </div>
+      <span class="desc">Governed content intake, approvals,<br>metadata enforcement, and DAM routing</span>
+      <div style="margin-top:9px;display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="font-size:9px;font-weight:700;letter-spacing:.07em;color:var(--p2);opacity:.85;">PHASE 1 · W3–W4</span>
+        <span style="color:var(--muted);font-size:9px;">|</span>
+        <span style="font-size:9px;font-weight:700;letter-spacing:.07em;color:var(--p2);opacity:.85;">PHASE 2 · W5–W12</span>
+      </div>
+    </div>
+    <div class="track tall">
+      <!-- Phase 1 label (starts at W3 = 15.38%) -->
+      <span class="plbl" style="top:2px; left:15.8%; color:var(--p2);">Phase 1</span>
+
+      <!-- P1 Discovery W3  (left=15.38%, 1wk) -->
+      <div class="bar bs dsc" style="top:10px; left:15.38%; width:7.69%;">Discovery</div>
+      <!-- P1 Build W3–W4  (left=15.38%, 2wk=15.38%) -->
+      <div class="bar bs b2"  style="top:34px; left:15.38%; width:15.38%;">Build</div>
+      <!-- P1 QA W4  (left=23.08%, 1wk=7.69%) -->
+      <div class="bar bs qa"  style="top:58px; left:23.08%; width:7.69%;">QA</div>
+      <!-- P1 Go-live end W4  (W4 end=30.77%) -->
+      <div class="bar bg gl"  style="top:82px; left:29.5%; width:7%;">&#10003; Go-live</div>
+
+      <!-- Phase divider -->
+      <div class="pdiv" style="top:106px;"></div>
+      <span class="plbl" style="top:110px; left:31.2%; color:var(--p2);">Phase 2</span>
+
+      <!-- P2 Discovery W5  (left=30.77%, 1wk) -->
+      <div class="bar bs dsc" style="top:118px; left:30.77%; width:7.69%;">Discovery</div>
+      <!-- P2 Build W5–W11  (left=30.77%, 7wk=53.85%) -->
+      <div class="bar bs b2"  style="top:143px; left:30.77%; width:53.85%;">Build &amp; Integration</div>
+      <!-- P2 QA W11–W12  (left=76.92%, 2wk=15.38%) -->
+      <div class="bar bs qa"  style="top:168px; left:76.92%; width:15.38%;">QA / UAT</div>
+      <!-- P2 Go-live end W12  (W12 end=92.31%) -->
+      <div class="bar bg gl"  style="top:193px; left:91%;   width:7.5%;">&#10003; Go-live</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         ROW 3 · Photoshelter  (WF logo)
+         ── UPDATED: starts W3 ──
+         Discovery W3 | Build W3–W5 | QA W5–W6 | Go-live end W6
+    ═══════════════════════════════════════════ -->
+    <div class="label">
+      <div class="ll">
+        <img src="wf-logo.jpg" alt="Adobe Workfront" />
+        <strong style="color:var(--p3);">#3 · Photoshelter &#8594; AEM DAM Sync</strong>
+      </div>
+      <span class="desc">High-volume image ingestion and synchronization<br>into governed AEM / Enterprise DAM</span>
+    </div>
+    <div class="track">
+      <!-- Discovery W3  (left=15.38%, 1wk) -->
+      <div class="bar bn dsc" style="top:8px;  left:15.38%; width:7.69%;">Discovery</div>
+      <!-- Build W3–W5  (left=15.38%, 3wk=23.08%) -->
+      <div class="bar bn b3"  style="top:42px; left:15.38%; width:23.08%;">Build &amp; Integration</div>
+      <!-- QA W5–W6  (left=30.77%, 2wk=15.38%) -->
+      <div class="bar bn qa"  style="top:76px; left:30.77%; width:15.38%;">QA / UAT</div>
+      <!-- Go-live end W6  (W6 end=46.15%) -->
+      <div class="bar bg gl"  style="top:105px;left:45%;    width:7%;">&#10003; Go-live</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         ROW 4 · Audience Selector  (WF logo)  TBD
+    ═══════════════════════════════════════════ -->
+    <div class="label">
+      <div class="ll">
+        <img src="wf-logo.jpg" alt="Adobe Workfront" />
+        <strong style="color:var(--p4);">#4 · WF Fusion Audience Selection Tool</strong>
+      </div>
+      <span class="desc">Request audience / segment builds from Workfront,<br>output campaign-ready audience into AJO</span>
+    </div>
+    <div class="track">
+      <div class="tbd" style="left:5%;width:80%;">
+        &#9203;&nbsp;&nbsp;Planning in Progress &middot; Timeline TBD
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         ROW 5 · WF + JIRA  (WF logo)  TBD
+    ═══════════════════════════════════════════ -->
+    <div class="label">
+      <div class="ll">
+        <img src="wf-logo.jpg" alt="Adobe Workfront" />
+        <strong style="color:var(--p5);">#5 · Workfront + JIRA Integration</strong>
+      </div>
+      <span class="desc">Connect Workfront and Jira to improve visibility,<br>handoffs, and delivery tracking</span>
+    </div>
+    <div class="track">
+      <div class="tbd" style="left:5%;width:80%;">
+        &#9203;&nbsp;&nbsp;Planning in Progress &middot; Timeline TBD
+      </div>
+    </div>
+
+  </div><!-- /timeline -->
+
+  <!-- Notes -->
+  <div class="notes">
+    <div class="card">
+      <h3>Sequencing Recommendation</h3>
+      <ul>
+        <li><strong>ROI Forms (#1)</strong> — Discovery W1, Build W1–W7, QA W7–W8, Go-live end W8.</li>
+        <li><strong>AEM Intake (#2) Phase 1</strong> — Discovery W3, Build W3–W4, QA W4, Go-live end W4.</li>
+        <li><strong>AEM Intake (#2) Phase 2</strong> — Discovery W5, Build W5–W11, QA W11–W12, Go-live end W12.</li>
+        <li><strong>Photoshelter (#3)</strong> — Discovery W3, Build W3–W5, QA W5–W6, Go-live end W6.</li>
+        <li><strong>#4 &amp; #5</strong> — Planning in progress; timelines locked after W3 discovery findings.</li>
+      </ul>
+    </div>
+
+    <!-- ── UPDATED CARD: Overlap Guardrails ── -->
+    <div class="card">
+      <h3>Overlap Guardrails</h3>
+      <ul>
+        <li>All phases shown sequentially — Discovery &#8594; Build &#8594; QA / UAT &#8594; Go-live, fully separated visually.</li>
+        <li>Avoid triple-concurrent UAT across all workstreams.</li>
+        <li>Protect shared SMEs across AEM, Fusion, Workfront, DAM governance, and NFL teams.</li>
+        <li>TBD items (#4, #5) must not add to the W1–W4 team load.</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+</main>
+</body>
+</html>

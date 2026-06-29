@@ -1,0 +1,482 @@
+<html data-type="html" data-identifier="8d64119d-b8f9-4b6e-aa45-09bdca25fbef" data-title="Octave Frontify CDN Contentful Integration Blueprint" data-version="1" imagemodel="imagen-4"><head>
+    <style>
+        :root {
+            /* Octave Light Premium Brand Palette */
+            --color-brand-blue: #0A192F;      /* Deep premium slate for headers & core layout */
+            --color-brand-cyan: #00B4D8;      /* Vibrant cyan for structural links and action points */
+            --color-brand-teal: #0096C7;      /* Secondary active state indicator */
+            --color-bg-primary: #FAFCFF;      /* Crisp off-white workspace background */
+            --color-bg-secondary: #FFFFFF;    /* Pure white raised panels */
+            --color-border-subtle: #E2E8F0;   /* Muted gray dividers */
+            --color-text-main: #1E293B;       /* High-contrast charcoal copy */
+            --color-text-muted: #64748B;      /* Muted slate for annotations */
+            --color-accent-pink: #E11D48;     /* Warning/Cons rose highlights */
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-main);
+            line-height: 1.5;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: var(--color-bg-secondary);
+            border-bottom: 1px solid var(--color-border-subtle);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(10, 25, 47, 0.03);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--color-brand-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--color-brand-cyan);
+            font-size: 1.4rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            color: var(--color-text-muted);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            color: var(--color-brand-cyan);
+            background-color: rgba(0, 180, 216, 0.06);
+        }
+
+        main {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-block {
+            background-color: var(--color-bg-secondary);
+            border: 1px solid var(--color-border-subtle);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(10, 25, 47, 0.02);
+            scroll-margin-top: 100px;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--color-brand-blue);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            line-height: 1.2;
+            border-left: 5px solid var(--color-brand-cyan);
+            padding-left: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            border-bottom: 2px solid var(--color-border-subtle);
+            padding-bottom: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            border-left: 3px solid var(--color-brand-cyan);
+            padding-left: 0.75rem;
+        }
+
+        p {
+            color: var(--color-text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 180, 216, 0.08);
+            color: var(--color-brand-teal);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--color-text-main);
+        }
+
+        li::before {
+            content: "•";
+            color: var(--color-brand-cyan);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -0.25rem;
+            font-weight: bold;
+        }
+
+        /* Architectural Diagram Layouts */
+        .diagram-box {
+            background-color: #F8FAFC;
+            border: 1px solid var(--color-border-subtle);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .diagram-step-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .diagram-node {
+            background-color: var(--color-bg-secondary);
+            border: 2px solid var(--color-border-subtle);
+            border-radius: 6px;
+            padding: 1.25rem;
+            text-align: center;
+            flex: 1;
+            box-shadow: 0 4px 10px rgba(10, 25, 47, 0.02);
+            transition: all 0.2s ease;
+        }
+
+        .diagram-node.active-node {
+            border-color: var(--color-brand-cyan);
+            background-color: rgba(0, 180, 216, 0.02);
+        }
+
+        .diagram-node h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .diagram-node p {
+            font-size: 0.8rem;
+            margin-bottom: 0;
+            color: var(--color-text-muted);
+        }
+
+        .diagram-arrow {
+            color: var(--color-brand-teal);
+            font-weight: 800;
+            font-size: 1.5rem;
+            user-select: none;
+        }
+
+        /* Matrix Table Styling */
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border: 1px solid var(--color-border-subtle);
+        }
+
+        .matrix-table th, .matrix-table td {
+            padding: 0.85rem 1.2rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--color-border-subtle);
+            text-align: left;
+        }
+
+        .matrix-table th {
+            background-color: #F8FAFC;
+            color: var(--color-brand-blue);
+            font-weight: 700;
+        }
+
+        .highlight-blue {
+            color: var(--color-brand-teal);
+            font-weight: 700;
+        }
+
+        .code-block {
+            background-color: #0F172A;
+            padding: 1.25rem;
+            border-radius: 6px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.8rem;
+            color: #E2E8F0;
+            overflow-x: auto;
+            border: 1px solid var(--color-border-subtle);
+            margin: 1rem 0;
+        }
+
+        .code-key { color: var(--color-brand-cyan); }
+        .code-val { color: #38BDF8; }
+
+        footer {
+            background-color: var(--color-bg-secondary);
+            border-top: 1px solid var(--color-border-subtle);
+            padding: 2.5rem;
+            text-align: center;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span>❖</span> octave.com / frameworks
+            </div>
+            <nav class="nav-links">
+                <a href="#section-framework" class="nav-btn">Solution Overview</a>
+                <a href="#section-technical" class="nav-btn">Technical Spec</a>
+                <a href="#section-evaluation" class="nav-btn">Operational Lift</a>
+                <a href="#section-gtm" class="nav-btn">GTM Migration</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- SECTION 1: SOLUTION OVERVIEW -->
+        <section id="section-framework" class="section-block">
+            <span class="badge">Architecture Strategy</span>
+            <h1>Native Frontify Previews Inside Contentful</h1>
+            <p><strong>Executive Summary:</strong> Streamline the editorial workflow by integrating Frontify’s secure brand-asset CDN directly into the Contentful editing workspace. This eliminates manual download and re-upload workflows, establishing a verified visual asset pipeline with zero layout shifts.</p>
+
+            <h2>The Operational Problem Statement</h2>
+            <ul>
+                <li><strong>Broken Editorial Loops:</strong> Content editors currently link to assets blindly, copying URLs from Frontify without on-screen validation inside Contentful.</li>
+                <li><strong>Asset Disconnects:</strong> Changes made in the master brand hub do not propagate safely, leading to broken assets and manual versioning errors.</li>
+                <li><strong>Layout Stability Risk:</strong> Lack of structured dimension metadata causes Cumulative Layout Shifts (CLS) upon asset load, degrading SEO performance.</li>
+            </ul>
+
+            <h2>The Strategic Integration Solution</h2>
+            <ul>
+                <li><strong>Natively Rendered Previews:</strong> Integrates Frontify Finder v2 into the Contentful App Framework to display true thumbnail images directly inside the content model.</li>
+                <li><strong>Automatic Dimensions Mapping:</strong> Synchronously parses layout dimensions (width and height ratios) from the dynamic asset payload.</li>
+                <li><strong>Version-Controlled CDN Links:</strong> Connects to unique, revision-specific CDN URLs to guarantee layout and performance safety during platform updates.</li>
+            </ul>
+
+            <h2>System Workflow Integration Map</h2>
+            <div class="diagram-box">
+                <div class="diagram-step-flow">
+                    <div class="diagram-node">
+                        <h4>1. Finder Prompt</h4>
+                        <p>User opens Frontify Finder v2 in Contentful</p>
+                    </div>
+                    <div class="diagram-arrow">➔</div>
+                    <div class="diagram-node active-node">
+                        <h4>2. Asset Match</h4>
+                        <p>Selects asset with validated download-permissions</p>
+                    </div>
+                    <div class="diagram-arrow">➔</div>
+                    <div class="diagram-node">
+                        <h4>3. Schema Binding</h4>
+                        <p>Injects rich metadata JSON object into CMS</p>
+                    </div>
+                    <div class="diagram-arrow">➔</div>
+                    <div class="diagram-node">
+                        <h4>4. Responsive Render</h4>
+                        <p>Vue.js uses JSON to reserve space and lazy-load</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: TECHNICAL SPECIFICATION -->
+        <section id="section-technical" class="section-block">
+            <span class="badge">Technical Specification</span>
+            <h1>JSON Metadata Binding &amp; Rendering Architecture</h1>
+            <p>To avoid custom middleware development, we implement an established market solution that binds asset metadata directly to the Contentful field schema.</p>
+
+            <h2>Rich Metadata Schema (Payload Standard)</h2>
+            <p>Rather than managing raw asset URL strings, the Contentful custom field stores a structured object carrying dimensions and asset credentials:</p>
+
+            <div class="code-block">
+{
+  <span class="code-key">"assetId"</span>: <span class="code-val">"frontify_asset_88bc27"</span>,
+  <span class="code-key">"title"</span>: <span class="code-val">"Aria Platform Dashboard Preview"</span>,
+  <span class="code-key">"cdnUrl"</span>: <span class="code-val">"https://octave-cdn.frontify.com/api/..."</span>,
+  <span class="code-key">"width"</span>: <span class="code-val">1920</span>,
+  <span class="code-key">"height"</span>: <span class="code-val">1080</span>,
+  <span class="code-key">"focalPoint"</span>: <span class="code-val">"[0.50, 0.45]"</span>
+}
+            </div>
+
+            <h2>Performance-First Vue 3 Component Blueprint</h2>
+            <p>Stephen and Michelle can implement this optimized rendering component to dynamically manage aspect ratios and enforce zero Cumulative Layout Shift:</p>
+
+            <div class="code-block">
+&lt;template&gt;
+  &lt;div :style=<span class="code-val">"{ aspectRatio: `${payload.width} / ${payload.height}` }"</span> class=<span class="code-val">"media-box"</span>&gt;
+    &lt;img :src=<span class="code-val">"payload.cdnUrl"</span> loading=<span class="code-val">"lazy"</span> alt=<span class="code-val">"payload.title"</span> /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+            </div>
+        </section>
+
+        <!-- SECTION 3: OPERATIONAL LIFT & PERFORMANCE EVALUATION -->
+        <section id="section-evaluation" class="section-block">
+            <span class="badge">Operational Performance</span>
+            <h1>Implementation Lift &amp; Performance Analysis</h1>
+            <p>Evaluating the integration effort against alternative in-house developments proves that a marketplace configuration offers the shortest time-to-value.</p>
+
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th>Metric Target</th>
+                        <th>Bespoke Custom API Integration</th>
+                        <th>Marketplace App Integration (Standard)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight-blue">Engineering Lift</td>
+                        <td>High (Custom field apps and endpoint management)</td>
+                        <td>Negligible (Simple API domain registration)</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-blue">Time-to-Value</td>
+                        <td>4 to 6 Weeks development sprint</td>
+                        <td><strong>Under 48 Hours</strong> configuration turn</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-blue">Ongoing Overhead</td>
+                        <td>High (Monitoring, security updates, schema changes)</td>
+                        <td>None (Managed directly by platform providers)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Key Operational Gains</h2>
+            <ul>
+                <li><strong>Complete Workflow Safety:</strong> Integrates user-based verification. Download-protected assets are blocked in real-time, preventing the publication of unapproved media.</li>
+                <li><strong>Reduced Labor Friction:</strong> Content editors save up to 4 hours per week by bypassing manual asset downloads, cropping, and uploads.</li>
+                <li><strong>Core Web Vitals Guard:</strong> Aspect ratios are locked during page load using metadata parameters, protecting high-impact SEO scores.</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 4: GTM MIGRATION AND ENABLING SCHEME -->
+        <section id="section-gtm" class="section-block">
+            <span class="badge">GTM Execution</span>
+            <h1>GTM Acceleration &amp; Deployment Path</h1>
+            <p>Deploying this integration requires zero infrastructure changes. By using Frontify's native marketplace application, we execute in a four-stage process.</p>
+
+            <h2>Implementation Roadmap</h2>
+            <div class="diagram-box">
+                <div class="diagram-step-flow">
+                    <div class="diagram-node">
+                        <h4>Stage 1: Register</h4>
+                        <p>Add Frontify App in Contentful portal (Day 1)</p>
+                    </div>
+                    <div class="diagram-arrow">➔</div>
+                    <div class="diagram-node">
+                        <h4>Stage 2: Align</h4>
+                        <p>Map Content Model to custom field type (Day 2)</p>
+                    </div>
+                    <div class="diagram-arrow">➔</div>
+                    <div class="diagram-node active-node">
+                        <h4>Stage 3: Component</h4>
+                        <p>Align Vue components with JSON schema (Days 3-4)</p>
+                    </div>
+                    <div class="diagram-arrow">➔</div>
+                    <div class="diagram-node">
+                        <h4>Stage 4: Launch</h4>
+                        <p>Publish verified, revision-safe assets (Day 5)</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Business Value Realization</h2>
+            <ul>
+                <li><strong>Decoupled Content Operations:</strong> Marketing managers can audit and update media directly within Contentful, requiring no code modifications or developer deployments.</li>
+                <li><strong>Unified Asset Ledger:</strong> Restricts asset proliferation by referencing a single source of truth, optimizing site speed and lowering hosting costs.</li>
+                <li><strong>Revision Protection:</strong> Safe CDN tracking preserves existing page visual structures even during master logo or asset updates in Frontify.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Octave Intelligence plc. Internal Digital Architecture &amp; Strategy Blueprint.</p>
+    </footer>
+
+    <script>
+        // Interactive anchor matching loop without CSP violations
+        const anchorLinks = document.querySelectorAll('.nav-btn');
+        anchorLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                anchorLinks.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+
+</body></html>

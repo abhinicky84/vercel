@@ -1,0 +1,575 @@
+<html data-type="html" data-identifier="8726f1fa-8fbc-4993-87f5-a35c44955b25" data-title="Octave Interactive Product Experience Framework" data-version="4" imagemodel="imagen-4"><head>
+    <style>
+        :root {
+            /* Octave Light Brand Palette */
+            --color-brand-blue: #0A192F;      /* Rich dark slate for premium headers & highlights */
+            --color-brand-cyan: #00B4D8;      /* Primary tech/active cyan accent */
+            --color-brand-teal: #0096C7;      /* Secondary structural/workflow action color */
+            --color-bg-primary: #FAFCFF;      /* Clean, crisp off-white backdrop */
+            --color-bg-secondary: #FFFFFF;    /* Pure white for raised cards/content frames */
+            --color-border-subtle: #E2E8F0;   /* Light gray separation borders */
+            --color-text-main: #1E293B;       /* High-contrast dark charcoal for ultimate readability */
+            --color-text-muted: #64748B;      /* Medium slate-gray for supporting metadata/descriptions */
+            --color-accent-pink: #E11D48;     /* Hot rose/pink indicator for key business bottlenecks/cons */
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-main);
+            line-height: 1.5;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: var(--color-bg-secondary);
+            border-bottom: 1px solid var(--color-border-subtle);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(10, 25, 47, 0.03);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--color-brand-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--color-brand-cyan);
+            font-size: 1.4rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            color: var(--color-text-muted);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            color: var(--color-brand-cyan);
+            background-color: rgba(0, 180, 216, 0.06);
+        }
+
+        main {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Combined Single Screen Section Layout */
+        .section-block {
+            background-color: var(--color-bg-secondary);
+            border: 1px solid var(--color-border-subtle);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(10, 25, 47, 0.02);
+            scroll-margin-top: 100px; /* Aligns target cleanly below sticky header */
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--color-brand-blue);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            line-height: 1.2;
+            border-left: 5px solid var(--color-brand-cyan);
+            padding-left: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            border-bottom: 2px solid var(--color-border-subtle);
+            padding-bottom: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            border-left: 3px solid var(--color-brand-cyan);
+            padding-left: 0.75rem;
+        }
+
+        p {
+            color: var(--color-text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 180, 216, 0.08);
+            color: var(--color-brand-teal);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Bullet-focused structure rules */
+        ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--color-text-main);
+        }
+
+        li::before {
+            content: "•";
+            color: var(--color-brand-cyan);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -0.25rem;
+            font-weight: bold;
+        }
+
+        .pro-con-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .pro-panel, .con-panel {
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--color-border-subtle);
+        }
+
+        .pro-panel {
+            background-color: rgba(16, 185, 129, 0.02);
+            border-top: 4px solid #10B981;
+        }
+
+        .con-panel {
+            background-color: rgba(225, 29, 72, 0.02);
+            border-top: 4px solid var(--color-accent-pink);
+        }
+
+        .pro-panel h4 {
+            color: #10B981;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .con-panel h4 {
+            color: var(--color-accent-pink);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .pro-panel li::before {
+            color: #10B981;
+        }
+
+        .con-panel li::before {
+            color: var(--color-accent-pink);
+        }
+
+        /* Architectural flow diagram block */
+        .diagram-container {
+            background-color: #F8FAFC;
+            border: 1px solid var(--color-border-subtle);
+            border-radius: 8px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .diagram-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .diagram-node {
+            background-color: var(--color-bg-secondary);
+            border: 2px solid var(--color-border-subtle);
+            border-radius: 6px;
+            padding: 1rem;
+            text-align: center;
+            flex: 1;
+            box-shadow: 0 4px 10px rgba(10, 25, 47, 0.02);
+            transition: all 0.2s ease;
+        }
+
+        .diagram-node.active-node {
+            border-color: var(--color-brand-cyan);
+            background-color: rgba(0, 180, 216, 0.02);
+        }
+
+        .diagram-node h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .diagram-node p {
+            font-size: 0.8rem;
+            margin-bottom: 0;
+            color: var(--color-text-muted);
+        }
+
+        .diagram-arrow {
+            color: var(--color-brand-teal);
+            font-weight: 800;
+            font-size: 1.25rem;
+            user-select: none;
+        }
+
+        /* Simple Comparison Matrix style */
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border: 1px solid var(--color-border-subtle);
+        }
+
+        .matrix-table th, .matrix-table td {
+            padding: 0.85rem 1.2rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--color-border-subtle);
+            text-align: left;
+        }
+
+        .matrix-table th {
+            background-color: #F8FAFC;
+            color: var(--color-brand-blue);
+            font-weight: 700;
+        }
+
+        .highlight-blue {
+            color: var(--color-brand-teal);
+            font-weight: 700;
+        }
+
+        /* Tech code block custom specs */
+        .code-container {
+            background-color: #0F172A;
+            padding: 1.25rem;
+            border-radius: 6px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.8rem;
+            color: #E2E8F0;
+            overflow-x: auto;
+            border: 1px solid var(--color-border-subtle);
+            margin: 1rem 0;
+        }
+
+        .code-key { color: var(--color-brand-cyan); }
+        .code-str { color: #38BDF8; }
+
+        footer {
+            background-color: var(--color-bg-secondary);
+            border-top: 1px solid var(--color-border-subtle);
+            padding: 2.5rem;
+            text-align: center;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span>❖</span> octave.com / frameworks
+            </div>
+            <nav class="nav-links">
+                <a href="#section-landscape" class="nav-btn">Framework Options</a>
+                <a href="#section-pros-cons" class="nav-btn">Evaluation Spec</a>
+                <a href="#section-vue-cms" class="nav-btn">Integration Specs</a>
+                <a href="#section-strategic-gtm" class="nav-btn">GTM Acceleration</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- SECTION 1: ARCHITECTURAL OPTIONS -->
+        <section id="section-landscape" class="section-block">
+            <span class="badge">Architecture Strategy</span>
+            <h1>Interactive Experience Integration Framework</h1>
+            <p><strong>Executive Directive:</strong> Transition the web estate from passive feature-listing templates to active, self-guided workflow models. The goal is to let prospects validate Octave platform capability (EAM, Aria Agentic Layer, Forte 3D) without sales onboarding friction.</p>
+
+            <h2>The Integration Candidates</h2>
+            <ul>
+                <li><strong>Figma Design Sandbox:</strong> High-fidelity interaction layer designed to embed core layout structures directly from design workspaces.</li>
+                <li><strong>Consensus Automated Demos:</strong> Enterprise presales platform delivering personalized, multi-branching video interactive scenarios.</li>
+                <li><strong>Arcade Interactive Walkthroughs:</strong> Lightweight marketing browser-capture solution driving annotated product flows.</li>
+            </ul>
+
+            <h2>Unified Component Positioning Strategy</h2>
+            <ul>
+                <li>Place components midway down target product pages to maximize visual value.</li>
+                <li>Position after core capability description, preceding analyst &amp; G2 verification cards.</li>
+                <li>Utilize a "Facade Pattern" wrapper to eliminate initial script loading overhead.</li>
+            </ul>
+
+            <h2>User Experience &amp; Lifecycle Flow Diagram</h2>
+            <!-- Replaced image layout with an elegant, responsive native CSS flow diagram block -->
+            <div class="diagram-container">
+                <div class="diagram-flow">
+                    <div class="diagram-node">
+                        <h4>1. Land Page</h4>
+                        <p>Buyer visits product page</p>
+                    </div>
+                    <div class="diagram-arrow">➔</div>
+                    <div class="diagram-node active-node">
+                        <h4>2. Interactive Tour</h4>
+                        <p>User launches self-guided Arcade tour</p>
+                    </div>
+                    <div class="diagram-arrow">➔</div>
+                    <div class="diagram-node">
+                        <h4>3. Personalization</h4>
+                        <p>Consensus selects custom workflow</p>
+                    </div>
+                    <div class="diagram-arrow">➔</div>
+                    <div class="diagram-node">
+                        <h4>4. Lead Capture</h4>
+                        <p>Sync direct profile to Salesforce</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: EVALUATION MATRIX & ANALYSIS -->
+        <section id="section-pros-cons" class="section-block">
+            <span class="badge">Core Assessment</span>
+            <h1>Technical Comparison &amp; Trade-off Matrix</h1>
+            <p>Our integration parameters require balancing browser load times, configuration ease, and the feedback metadata loop back to sales teams.</p>
+
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th>Platform Option</th>
+                        <th>General Use Case</th>
+                        <th>Contentful Integration</th>
+                        <th>Initial Load Weight</th>
+                        <th>Tracking Loop</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight-blue">Arcade</td>
+                        <td>Inline, high-intent product walkthroughs</td>
+                        <td>Extremely Simple (JSON/URL mapping)</td>
+                        <td>Negligible (Optimized media delivery)</td>
+                        <td>Standard completions, CTR</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-blue">Consensus</td>
+                        <td>Enterprise presales &amp; committee qualification</td>
+                        <td>Medium (Requires secure iframe structures)</td>
+                        <td>Low (Branching loader framework)</td>
+                        <td>Advanced Demolytics &amp; Salesforce sync</td>
+                    </tr>
+                    <tr>
+                        <td>Figma Widget</td>
+                        <td>Early design iteration &amp; user testing</td>
+                        <td>Complex (Bespoke custom widget wrapping)</td>
+                        <td>Extremely Heavy (Pulls canvas engine)</td>
+                        <td>None (Zero telemetry)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Direct Comparative Trade-offs</h2>
+
+            <h3>1. Arcade (The GTM Standard)</h3>
+            <div class="pro-con-grid">
+                <div class="pro-panel">
+                    <h4>Operational Advantages</h4>
+                    <ul>
+                        <li>Ultra-rapid deployment; build and launch annotated tours in under 15 minutes.</li>
+                        <li>Outstanding browser loading performance using optimized static assets.</li>
+                        <li>Simple, non-technical maintenance interface for quick content updates.</li>
+                    </ul>
+                </div>
+                <div class="con-panel">
+                    <h4>Operational Risks</h4>
+                    <ul>
+                        <li>Limited support for highly customized user input simulation.</li>
+                        <li>Lacks native, deep account-level buying committee identification.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>2. Consensus Presales Platform</h3>
+            <div class="pro-con-grid">
+                <div class="pro-panel">
+                    <h4>Operational Advantages</h4>
+                    <ul>
+                        <li>Surfaces the buyer committee by tracking viewer share paths.</li>
+                        <li>Adapts demo scenarios based on self-selected target personas.</li>
+                        <li>Native API syncs direct account interaction signals to Salesforce.</li>
+                    </ul>
+                </div>
+                <div class="con-panel">
+                    <h4>Operational Risks</h4>
+                    <ul>
+                        <li>Requires heavy up-front asset configuration and structural planning.</li>
+                        <li>Cost-prohibitive for simple awareness marketing templates.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>3. Figma Widget Engine</h3>
+            <div class="pro-con-grid">
+                <div class="pro-panel">
+                    <h4>Operational Advantages</h4>
+                    <ul>
+                        <li>Synchronous updates directly mirror the design workspace instantly.</li>
+                        <li>Maintains absolute design systems compliance across teams.</li>
+                        <li>Zero ongoing platform licensing costs.</li>
+                    </ul>
+                </div>
+                <div class="con-panel">
+                    <h4>Operational Risks</h4>
+                    <ul>
+                        <li>Severe loading times; blocks key rendering threads (hurts SEO/LCP).</li>
+                        <li>No guided tooltips or helper instructions for non-technical buyers.</li>
+                        <li>Complete absence of analytics feedback or user tracking metrics.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: TECHNICAL STACK & CMS SPECS -->
+        <section id="section-vue-cms" class="section-block">
+            <span class="badge">Dev Engineering</span>
+            <h1>VueJS &amp; Contentful Implementation Specs</h1>
+            <p>For <strong>Stephen</strong> and <strong>Michelle</strong>, we establish a standardized component schema to keep design templates safe, maintain performance, and avoid code redeployments.</p>
+
+            <h2>Contentful Content Schema Definition</h2>
+            <ul>
+                <li><strong>Content Type:</strong> <code>InteractiveDemoBlock</code> (Custom Component).</li>
+                <li><strong>CMS Form Inputs:</strong>
+                    <ul>
+                        <li><code>provider</code>: Dropdown field (<code>arcade</code> | <code>consensus</code>).</li>
+                        <li><code>embedUrl</code>: Text validation field requiring secure HTTPS domain source.</li>
+                        <li><code>facadeImage</code>: Media asset pointer for high-resolution web placeholder.</li>
+                        <li><code>aspectRatio</code>: Dropdown locking element layout (<code>16:9</code> | <code>4:3</code>).</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Vue.js Lazy-Rendering Optimization (Facade Pattern)</h2>
+            <p>To secure our Core Web Vitals, the browser must not fetch the dynamic iframe during initial page parsing. We load a lightweight image facade that hot-loads the target interactive frame on demand:</p>
+
+            <div class="code-container">
+<span class="code-key">const</span> formattedUrl = computed(() =&gt; {
+  <span class="code-key">const</span> url = <span class="code-key">new</span> URL(props.embedUrl);
+  <span class="code-key">const</span> params = <span class="code-key">new</span> URLSearchParams(window.location.search);
+  <span class="code-key">const</span> trackingTags = [<span class="code-str">'utm_source'</span>, <span class="code-str">'utm_medium'</span>, <span class="code-str">'utm_campaign'</span>];
+  
+  <span class="code-key">trackingTags.forEach</span>(tag =&gt; {
+    <span class="code-key">if</span> (params.has(tag)) url.searchParams.set(tag, params.get(tag));
+  });
+  <span class="code-key">return</span> url.toString();
+});
+            </div>
+        </section>
+
+        <!-- SECTION 4: GTM ACCELERATION AND STRATEGIC GAIN -->
+        <section id="section-strategic-gtm" class="section-block">
+            <span class="badge">Business Enablement</span>
+            <h1>Marketer Empowerment &amp; Speed-to-Market</h1>
+            <p>To meet executive timelines without burdening the engineering backlog, we recommend deploying a hybrid Arcade and Consensus GTM strategy.</p>
+
+            <h2>The dual marketing strategy designed for rapid activation:</h2>
+            <ul>
+                <li><strong>Phase 1: Rapid GTM Execution (Arcade Embeds):</strong> Empowers our product marketing team to capture, edit, and publish target walkthrough workflows within 1 day. Stephen’s Contentful schema lets marketers swap demo paths in the CMS without dev deployments.</li>
+                <li><strong>Phase 2: High-Value Pipeline Conversion (Consensus integration):</strong> Focuses on late-stage product pages and account landing sites. Delivers personalized branching paths, passing enriched buyer profiles directly to our CRM.</li>
+            </ul>
+
+            <h2>Key Strategic Benefits</h2>
+            <ul>
+                <li><strong>100% Development Decoupling:</strong> Marketing updates, updates paths, and swaps copy inside the CMS without engineering code changes.</li>
+                <li><strong>Maximum Performance Security:</strong> Lazy-loaded code architecture maintains PageSpeed scores and protects organic rank visibility.</li>
+                <li><strong>Attribution Preservation:</strong> Parent-to-iframe parameter passing keeps tracking, UTM sources, and analytics logs intact.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Octave Intelligence plc. Internal Digital Architecture &amp; Strategy Blueprint.</p>
+    </footer>
+
+    <script>
+        // Synchronous anchor mapping avoiding CSP-violations
+        const anchors = document.querySelectorAll('.nav-btn');
+        anchors.forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                anchors.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+
+</body></html>

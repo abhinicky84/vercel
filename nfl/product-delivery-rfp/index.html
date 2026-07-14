@@ -1,4 +1,4 @@
-<html data-type="html" data-identifier="8de93a39-b5ca-43c9-8d73-6f4b1439ee0d" data-title="NFL Digital Media RFP - Response Brief" data-version="1" width="1200" height="900"><head>
+<html data-type="html" data-identifier="8de93a39-b5ca-43c9-8d73-6f4b1439ee0d" data-title="NFL Digital Media RFP - Response Brief" data-version="4" width="1200" height="900"><head>
 <meta charset="UTF-8">
 <title id="page-title">NFL Digital Media RFP — Response Brief</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,14 +72,14 @@
     line-height: 1.1;
   }
   .logo-text small { display: block; font-size: 11px; font-weight: 400; opacity: 0.8; letter-spacing: 2px; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links { display: flex; gap: 20px; list-style: none; }
   .nav-links a {
     color: #fff;
     text-decoration: none;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 600;
-    font-size: 15px;
-    letter-spacing: 1.5px;
+    font-size: 14px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     transition: color 0.2s;
     padding-bottom: 4px;
@@ -310,6 +310,162 @@
   }
   .timeline-item p { color: #555; font-size: 15px; }
 
+  /* ===== COMPETITIVE INTELLIGENCE ===== */
+  .competitor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .competitor-card {
+    background: #fff;
+    border-top: 4px solid #7f8c8d;
+    padding: 26px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 4px;
+  }
+  .competitor-card.incumbent {
+    border-top-color: #013369;
+    background: linear-gradient(180deg, #f7f9fc 0%, #fff 200px);
+  }
+  .competitor-card.emerging {
+    border-top-color: #d50a0a;
+  }
+  .comp-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .comp-badge.incumbent-bg { background: #013369; color: #fff; }
+  .comp-badge.emerging-bg { background: #d50a0a; color: #fff; }
+  .comp-badge.threat-bg { background: #e67e22; color: #fff; }
+
+  .competitor-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .competitor-card h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .comp-bullets {
+    list-style: none;
+  }
+  .comp-bullets li {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+  }
+  .comp-bullets li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 10px;
+    color: #013369;
+  }
+  .competitor-card.emerging .comp-bullets li::before {
+    color: #d50a0a;
+  }
+
+  /* ===== WPP CAPABILITY LENS ===== */
+  .capability-table-container {
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-top: 24px;
+  }
+  .cap-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  .cap-table th {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: #1a1a1a;
+    padding: 16px 12px;
+    border-bottom: 2px solid #013369;
+  }
+  .cap-table th.agency-col {
+    color: #013369;
+    font-size: 16px;
+  }
+  .cap-table td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #eef1f5;
+    font-size: 14px;
+    vertical-align: top;
+  }
+  .agency-name-cell {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: #013369;
+    text-transform: uppercase;
+  }
+  .agency-subtitle {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    text-transform: none;
+    color: #7f8c8d;
+    font-weight: normal;
+    margin-top: 4px;
+  }
+  .cap-marker {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 8px;
+    border-radius: 3px;
+  }
+  .cap-marker.lead {
+    background: #ebf5ff;
+    color: #013369;
+  }
+  .cap-marker.support {
+    background: #fdf2f2;
+    color: #d50a0a;
+  }
+  .cap-marker.none {
+    background: #f4f5f7;
+    color: #95a5a6;
+    font-weight: normal;
+  }
+  .cap-desc {
+    display: block;
+    font-size: 12px;
+    color: #555;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
   /* ===== QUESTIONS ACCORDION ===== */
   .accordion { display: grid; gap: 12px; }
   .acc-item {
@@ -477,7 +633,7 @@
   @media (max-width: 900px) {
     .hero h1 { font-size: 44px; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
-    .scope-grid, .goals-grid, .levers { grid-template-columns: 1fr; }
+    .scope-grid, .goals-grid, .levers, .competitor-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .section-header h2 { font-size: 32px; }
   }
@@ -492,7 +648,6 @@
 
 <nav>
   <div class="logo">
-    <!--div class="shield">NFL</div-->
     <div class="logo-text">
       RFP Brief
       <small>Product Development Services</small>
@@ -503,6 +658,8 @@
     <li><a href="#scope">Scope</a></li>
     <li><a href="#objectives">Objectives</a></li>
     <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#intelligence">Intelligence</a></li>
+    <li><a href="#wpp-lens">WPP Lens</a></li>
     <li><a href="#questions">Questions</a></li>
     <li><a href="#efficiencies">Efficiencies</a></li>
     <li><a href="#next">Next Steps</a></li>
@@ -644,11 +801,143 @@
   </div>
 </section>
 
+<!-- ===== COMPETITIVE INTELLIGENCE (NOW REORDERED AFTER TIMELINE) ===== -->
+<section class="content" id="intelligence" style="background: #eef1f5; max-width: none; border-bottom: 1px solid #dcdfe4;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 40px;">
+    <div class="section-header">
+      <div class="section-eyebrow">The Landscape</div>
+      <h2>Competitive Intelligence</h2>
+      <p>Tracking the known incumbent players, channel experience providers, and emerging innovators recognized by the NFL in recent initiatives.</p>
+    </div>
+
+    <div class="competitor-grid">
+      <!-- Accenture -->
+      <div class="competitor-card incumbent">
+        <div class="comp-badge incumbent-bg">Incumbent Player</div>
+        <h3>Accenture Song</h3>
+        <h4>Large-Scale Engineering &amp; Operations</h4>
+        <ul class="comp-bullets">
+          <li><strong>Current Footprint:</strong> Main systems integrator and primary engine of scale; heavily involved in enterprise-level delivery.</li>
+          <li><strong>Threat Profile:</strong> Highly likely to receive this RFP to defend their current operational footprint with extensive resource scale.</li>
+          <li><strong>Vulnerability:</strong> Historically perceived as a costly, process-heavy "outsourced black box" rather than an embedded, nimble team partner.</li>
+        </ul>
+      </div>
+
+      <!-- YinzCam -->
+      <div class="competitor-card incumbent">
+        <div class="comp-badge threat-bg">Incumbent Specialty</div>
+        <h3>YinzCam</h3>
+        <h4>Channel Experience Provider</h4>
+        <ul class="comp-bullets">
+          <li><strong>Digital Presence:</strong> Longtime developer of custom club-level mobile apps and immersive venue-based fan experiences.</li>
+          <li><strong>Recent Plays:</strong> Actively pitching next-gen innovations like the Dallas Stars Draft Central "Digital Takeover" live dashboard.</li>
+          <li><strong>Pitch Vector:</strong> Pushing hard on highly customized, immersive digital fan hubs directly integrated with live statistical feeds.</li>
+        </ul>
+      </div>
+
+      <!-- Draft Innovation Winners -->
+      <div class="competitor-card emerging">
+        <div class="comp-badge emerging-bg">Emerging Innovators</div>
+        <h3>NFL Innovation Hub Winners</h3>
+        <h4>Specialized Fan Engagement Tech</h4>
+        <ul class="comp-bullets">
+          <li><strong>FanFest:</strong> Recognized at the Draft Experience; specialized in interactive gaming, loyalty, and real-time social engagement mechanics.</li>
+          <li><strong>mycrocast:</strong> Audio-focused innovator providing specialized real-time, low-latency fan commentaries and custom audio streams.</li>
+          <li><strong>You. Smart. Thing.</strong> Specialized in travel demand management, routing, and personalized journey mapping for live event venues.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WPP CAPABILITY LENS (NOW REORDERED AFTER TIMELINE) ===== -->
+<section class="content" id="wpp-lens">
+  <div class="section-header">
+    <div class="section-eyebrow">Strategic Framing</div>
+    <h2>WPP Capability Lens &amp; Lead Agency Matrix</h2>
+    <p>To deliver maximum value and address NFL's scale, we align distinct WPP operating brands to their core disciplines, clearly separating MarTech Operations from pure-play Mobile and Product Engineering.</p>
+  </div>
+
+  <div class="capability-table-container">
+    <table class="cap-table">
+      <thead>
+        <tr>
+          <th class="agency-col" style="width: 25%;">WPP Agency Partner</th>
+          <th style="width: 25%;">Product Dev &amp; UX/UI</th>
+          <th style="width: 25%;">MarTech Operations &amp; Scale</th>
+          <th style="width: 25%;">Fan Engagement &amp; Personalization</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Bottle Rocket -->
+        <tr>
+          <td class="agency-name-cell">
+            Bottle Rocket
+            <span class="agency-subtitle">Specialized Digital Product Agency</span>
+          </td>
+          <td>
+            <span class="cap-marker lead">● Lead Brand</span>
+            <span class="cap-desc">Mobile-first engineering, cross-platform React Native development, and UX/UI design system architecture. Core product development engine.</span>
+          </td>
+          <td>
+            <span class="cap-marker support">◌ Support</span>
+            <span class="cap-desc">Supports local product integration and delivery pod assembly under agile standards.</span>
+          </td>
+          <td>
+            <span class="cap-marker support">◌ Support</span>
+            <span class="cap-desc">Builds customized, high-uptime mobile and TV interfaces for direct fan interactions.</span>
+          </td>
+        </tr>
+
+        <!-- VML -->
+        <tr>
+          <td class="agency-name-cell">
+            VML
+            <span class="agency-subtitle">End-to-End Digital Transformation</span>
+          </td>
+          <td>
+            <span class="cap-marker lead">● Lead Brand</span>
+            <span class="cap-desc">UX/UI design leadership, product strategy, high-scale web platforms (React/TypeScript), and program governance.</span>
+          </td>
+          <td>
+            <span class="cap-marker lead">● Lead Brand</span>
+            <span class="cap-desc">Enterprise scale, continuous integration, global delivery pod orchestration, and programmatic governance.</span>
+          </td>
+          <td>
+            <span class="cap-marker lead">● Lead Brand</span>
+            <span class="cap-desc">Personalization strategy, content-discovery algorithms, and creative tech executions (applied AI/ML).</span>
+          </td>
+        </tr>
+
+        <!-- Verticurl -->
+        <tr>
+          <td class="agency-name-cell">
+            Verticurl
+            <span class="agency-subtitle">Marketing Technology (MarTech) Operations</span>
+          </td>
+          <td>
+            <span class="cap-marker support">◌ Support</span>
+            <span class="cap-desc">Frontend and Backend development, custom engineering, and UX/UI design are Verticurl's stronghold. Strong offshore delivery model to gain efficiencies.</span>
+          </td>
+          <td>
+            <span class="cap-marker lead">● Lead Brand</span>
+            <span class="cap-desc">MarTech platform integration, campaign orchestration, high-velocity email/push execution, and offshore/nearshore delivery scale.</span>
+          </td>
+          <td>
+            <span class="cap-marker support">◌ Support</span>
+            <span class="cap-desc">Integrates consumer data feeds (NFLID, subscriber logs) with campaign tools to automate targeted fan outreach.</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section class="content" id="questions" style="background:#eef1f5; max-width:none;">
   <div style="max-width:1200px; margin:0 auto;">
     <div class="section-header">
       <div class="section-eyebrow">Clarifications</div>
-      <h2 id="q-title">Questions to Submit by Jul 14</h2>
+      <h2 id="q-title">Questions to Submit by Jul 22</h2>
       <p id="q-desc">Grouped by theme — targeted questions to expose scope depth, complexity, and hidden operational overhead.</p>
     </div>
 
@@ -824,7 +1113,6 @@
     <div class="cta-buttons">
       <a href="outline.html" class="btn btn-primary" id="btn1">Draft Response Outline</a>
       <a href="questions.html" class="btn btn-secondary" id="btn2">Build Clarification Doc</a>
-      <!--a href="pricing.html" class="btn btn-secondary" id="btn3">Pricing Model Template</a-->
     </div>
   </div>
 </section>

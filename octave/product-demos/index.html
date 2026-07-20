@@ -1,16 +1,17 @@
-<html data-type="html" data-identifier="8726f1fa-8fbc-4993-87f5-a35c44955b25" data-title="Octave Interactive Product Experience Framework" data-version="4" imagemodel="imagen-4"><head>
+<html data-type="html" data-identifier="8f3b2591-ba18-47d3-9bc6-94672bc3ebcd" data-title="Octave Interactive Product Experience Framework" data-version="6" imagemodel="imagen-4"><head>
     <style>
         :root {
-            /* Octave Light Brand Palette */
-            --color-brand-blue: #0A192F;      /* Rich dark slate for premium headers & highlights */
-            --color-brand-cyan: #00B4D8;      /* Primary tech/active cyan accent */
-            --color-brand-teal: #0096C7;      /* Secondary structural/workflow action color */
-            --color-bg-primary: #FAFCFF;      /* Clean, crisp off-white backdrop */
-            --color-bg-secondary: #FFFFFF;    /* Pure white for raised cards/content frames */
-            --color-border-subtle: #E2E8F0;   /* Light gray separation borders */
-            --color-text-main: #1E293B;       /* High-contrast dark charcoal for ultimate readability */
-            --color-text-muted: #64748B;      /* Medium slate-gray for supporting metadata/descriptions */
-            --color-accent-pink: #E11D48;     /* Hot rose/pink indicator for key business bottlenecks/cons */
+            /* Octave Premium Light Design Tokens */
+            --color-brand-blue: #0A192F;      /* Deep premium slate for headers */
+            --color-brand-cyan: #00B4D8;      /* Primary active tech accent */
+            --color-brand-teal: #0096C7;      /* Supporting action state color */
+            --color-bg-primary: #FAFCFF;      /* Clean off-white background */
+            --color-bg-secondary: #FFFFFF;    /* Pure white raised panels */
+            --color-border-subtle: #E2E8F0;   /* Muted gray dividers */
+            --color-text-main: #1E293B;       /* High-contrast charcoal body copy */
+            --color-text-muted: #64748B;      /* Supporting metadata gray */
+            --color-accent-pink: #E11D48;     /* Risk / Bottleneck indicators */
+            --color-accent-green: #10B981;    /* Advantage / Benefit indicators */
             --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -84,6 +85,7 @@
             padding: 0.4rem 0.8rem;
             border-radius: 4px;
             transition: all 0.2s ease;
+            text-decoration: none;
         }
 
         .nav-btn:hover, .nav-btn.active {
@@ -98,7 +100,6 @@
             padding: 3rem 2rem;
         }
 
-        /* Combined Single Screen Section Layout */
         .section-block {
             background-color: var(--color-bg-secondary);
             border: 1px solid var(--color-border-subtle);
@@ -106,7 +107,7 @@
             padding: 3rem;
             margin-bottom: 3rem;
             box-shadow: 0 10px 30px rgba(10, 25, 47, 0.02);
-            scroll-margin-top: 100px; /* Aligns target cleanly below sticky header */
+            scroll-margin-top: 100px;
         }
 
         h1, h2, h3, h4 {
@@ -159,7 +160,6 @@
             margin-bottom: 1.25rem;
         }
 
-        /* Bullet-focused structure rules */
         ul {
             list-style: none;
             margin-bottom: 1.5rem;
@@ -181,6 +181,91 @@
             left: 0;
             top: -0.25rem;
             font-weight: bold;
+        }
+
+        /* Improved CSS Flexbox Flow Diagram Layout */
+        .diagram-container {
+            background-color: #F8FAFC;
+            border: 1px solid var(--color-border-subtle);
+            border-radius: 8px;
+            padding: 2.5rem 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .diagram-flow {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .diagram-step-box {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .diagram-node {
+            background-color: var(--color-bg-secondary);
+            border: 2px solid var(--color-border-subtle);
+            border-radius: 6px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(10, 25, 47, 0.02);
+            transition: all 0.2s ease;
+        }
+
+        .diagram-node.active-node {
+            border-color: var(--color-brand-cyan);
+            background-color: rgba(0, 180, 216, 0.02);
+        }
+
+        .diagram-node h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.35rem;
+            color: var(--color-brand-blue);
+        }
+
+        .diagram-node p {
+            font-size: 0.8rem;
+            margin-bottom: 0;
+            color: var(--color-text-muted);
+            line-height: 1.3;
+        }
+
+        .diagram-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-brand-teal);
+            font-weight: 800;
+            font-size: 1.5rem;
+            padding: 0 0.5rem;
+            user-select: none;
+        }
+
+        /* 1:1 Matrix Table Styling */
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border: 1px solid var(--color-border-subtle);
+        }
+
+        .matrix-table th, .matrix-table td {
+            padding: 1rem 1.2rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--color-border-subtle);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .matrix-table th {
+            background-color: #F8FAFC;
+            color: var(--color-brand-blue);
+            font-weight: 700;
         }
 
         .pro-con-grid {
@@ -226,87 +311,6 @@
             color: var(--color-accent-pink);
         }
 
-        /* Architectural flow diagram block */
-        .diagram-container {
-            background-color: #F8FAFC;
-            border: 1px solid var(--color-border-subtle);
-            border-radius: 8px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .diagram-flow {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            position: relative;
-        }
-
-        .diagram-node {
-            background-color: var(--color-bg-secondary);
-            border: 2px solid var(--color-border-subtle);
-            border-radius: 6px;
-            padding: 1rem;
-            text-align: center;
-            flex: 1;
-            box-shadow: 0 4px 10px rgba(10, 25, 47, 0.02);
-            transition: all 0.2s ease;
-        }
-
-        .diagram-node.active-node {
-            border-color: var(--color-brand-cyan);
-            background-color: rgba(0, 180, 216, 0.02);
-        }
-
-        .diagram-node h4 {
-            font-size: 0.95rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .diagram-node p {
-            font-size: 0.8rem;
-            margin-bottom: 0;
-            color: var(--color-text-muted);
-        }
-
-        .diagram-arrow {
-            color: var(--color-brand-teal);
-            font-weight: 800;
-            font-size: 1.25rem;
-            user-select: none;
-        }
-
-        /* Simple Comparison Matrix style */
-        .matrix-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            border: 1px solid var(--color-border-subtle);
-        }
-
-        .matrix-table th, .matrix-table td {
-            padding: 0.85rem 1.2rem;
-            font-size: 0.9rem;
-            border-bottom: 1px solid var(--color-border-subtle);
-            text-align: left;
-        }
-
-        .matrix-table th {
-            background-color: #F8FAFC;
-            color: var(--color-brand-blue);
-            font-weight: 700;
-        }
-
-        .highlight-blue {
-            color: var(--color-brand-teal);
-            font-weight: 700;
-        }
-
-        /* Tech code block custom specs */
         .code-container {
             background-color: #0F172A;
             padding: 1.25rem;
@@ -337,13 +341,13 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <span>❖</span> Octave
+                <span>❖</span> octave.com / integrations
             </div>
             <nav class="nav-links">
                 <a href="#section-landscape" class="nav-btn">Framework Options</a>
                 <a href="#section-pros-cons" class="nav-btn">Evaluation Spec</a>
                 <a href="#section-vue-cms" class="nav-btn">Integration Specs</a>
-                <a href="#section-strategic-gtm" class="nav-btn">GTM Acceleration</a>
+                <a href="#section-strategic-gtm" class="nav-btn">GTM Implementation</a>
             </nav>
         </div>
     </header>
@@ -361,6 +365,7 @@
                 <li><strong>Figma Design Sandbox:</strong> High-fidelity interaction layer designed to embed core layout structures directly from design workspaces.</li>
                 <li><strong>Consensus Automated Demos:</strong> Enterprise presales platform delivering personalized, multi-branching video interactive scenarios.</li>
                 <li><strong>Arcade Interactive Walkthroughs:</strong> Lightweight marketing browser-capture solution driving annotated product flows.</li>
+                <li><strong>Superdemo Interactive Tours:</strong> Modern and simple HTML-cloned product guides built for rapid web embeds and lightweight page performance.</li>
             </ul>
 
             <h2>Unified Component Positioning Strategy</h2>
@@ -371,132 +376,100 @@
             </ul>
 
             <h2>User Experience &amp; Lifecycle Flow Diagram</h2>
-            <!-- Replaced image layout with an elegant, responsive native CSS flow diagram block -->
             <div class="diagram-container">
                 <div class="diagram-flow">
-                    <div class="diagram-node">
-                        <h4>1. Land Page</h4>
-                        <p>Buyer visits product page</p>
+                    <div class="diagram-step-box">
+                        <div class="diagram-node">
+                            <h4>1. Land Page</h4>
+                            <p>Buyer visits product page</p>
+                        </div>
                     </div>
                     <div class="diagram-arrow">➔</div>
-                    <div class="diagram-node active-node">
-                        <h4>2. Interactive Tour</h4>
-                        <p>User launches self-guided Arcade tour</p>
+                    <div class="diagram-step-box">
+                        <div class="diagram-node active-node">
+                            <h4>2. Interactive Tour</h4>
+                            <p>User launches self-guided demo</p>
+                        </div>
                     </div>
                     <div class="diagram-arrow">➔</div>
-                    <div class="diagram-node">
-                        <h4>3. Personalization</h4>
-                        <p>Consensus selects custom workflow</p>
+                    <div class="diagram-step-box">
+                        <div class="diagram-node">
+                            <h4>3. Personalization</h4>
+                            <p>Custom workflow selection</p>
+                        </div>
                     </div>
                     <div class="diagram-arrow">➔</div>
-                    <div class="diagram-node">
-                        <h4>4. Lead Capture</h4>
-                        <p>Sync direct profile to Salesforce</p>
+                    <div class="diagram-step-box">
+                        <div class="diagram-node">
+                            <h4>4. Lead Capture</h4>
+                            <p>Sync direct profile to CRM</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: EVALUATION MATRIX & ANALYSIS -->
+        <!-- SECTION 2: 1:1 COMPARATIVE RIGOROUS ANALYSIS -->
         <section id="section-pros-cons" class="section-block">
-            <span class="badge">Core Assessment</span>
-            <h1>Technical Comparison &amp; Trade-off Matrix</h1>
-            <p>Our integration parameters require balancing browser load times, configuration ease, and the feedback metadata loop back to sales teams.</p>
+            <span class="badge">Rigorous Evaluation</span>
+            <h1>Rigorous 1:1 Platform Comparison</h1>
+            <p>Evaluating each interactive demo platform across all critical operational parameters to establish clear product-fit guidelines.</p>
 
             <table class="matrix-table">
                 <thead>
                     <tr>
-                        <th>Platform Option</th>
-                        <th>General Use Case</th>
-                        <th>Contentful Integration</th>
-                        <th>Initial Load Weight</th>
-                        <th>Tracking Loop</th>
+                        <th>Comparison Aspect</th>
+                        <th>Arcade (Walkthroughs)</th>
+                        <th>Superdemo (Interactive Tours)</th>
+                        <th>Consensus (Presales Video)</th>
+                        <th>Figma Widget (Design Canvas)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="highlight-blue">Arcade</td>
-                        <td>Inline, high-intent product walkthroughs</td>
-                        <td>Extremely Simple (JSON/URL mapping)</td>
-                        <td>Negligible (Optimized media delivery)</td>
-                        <td>Standard completions, CTR</td>
+                        <td><strong>General Use Case</strong></td>
+                        <td>Inline marketing product walkthroughs, social media teasers, and rapid PLG onboarding loops.</td>
+                        <td>Polished, high-fidelity interactive product guides and website tour components.</td>
+                        <td>Automated enterprise presales, buyer committee alignment, and personalized sales boards.</td>
+                        <td>Early design iteration, prototype validation, and internal visual review cycles.</td>
                     </tr>
                     <tr>
-                        <td class="highlight-blue">Consensus</td>
-                        <td>Enterprise presales &amp; committee qualification</td>
-                        <td>Medium (Requires secure iframe structures)</td>
-                        <td>Low (Branching loader framework)</td>
-                        <td>Advanced Demolytics &amp; Salesforce sync</td>
+                        <td><strong>Time to Market</strong></td>
+                        <td><strong>1 Day</strong>. Easy browser extension recording and instant publishing.</td>
+                        <td><strong>2 - 3 Days</strong>. Straightforward browser recording and copy creation.</td>
+                        <td><strong>4 - 6 Weeks</strong>. Requires scripting, video creation, and personalization routing.</td>
+                        <td><strong>1 Day</strong>. Direct export or layout sharing from active project workspaces.</td>
                     </tr>
                     <tr>
-                        <td>Figma Widget</td>
-                        <td>Early design iteration &amp; user testing</td>
-                        <td>Complex (Bespoke custom widget wrapping)</td>
-                        <td>Extremely Heavy (Pulls canvas engine)</td>
-                        <td>None (Zero telemetry)</td>
+                        <td><strong>Contentful Integration</strong></td>
+                        <td>Extremely Simple. Pass-through CDN iframe mapping within CMS fields.</td>
+                        <td>Extremely Simple. Out-of-the-box responsive embed code configurations.</td>
+                        <td>Medium. Requires secure iframe structures with parameters forwarding.</td>
+                        <td>Complex. Needs manual API key bindings or custom CSS wrappers.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Initial Load Weight</strong></td>
+                        <td>Negligible. Highly compressed image strings load via media CDNs.</td>
+                        <td>Low. Extremely fast optimized media loading speeds.</td>
+                        <td>Low. Content delivers via structured, lightweight video-streaming frames.</td>
+                        <td>Extremely Heavy. Must parse and load Figma's massive workspace engine.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CRM Integration</strong></td>
+                        <td>Standard integrations (HubSpot, webhooks) on growth tiers.</td>
+                        <td>Standard CRM push connections and tracking webhook arrays.</td>
+                        <td>Deep CRM sync (Salesforce, Marketo) mapping interactions directly to sales boards.</td>
+                        <td>None. No mechanism to pass interactions to external pipelines.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analytics</strong></td>
+                        <td>Basic visitor insights: clicks, step drop-off, and completion statistics.</td>
+                        <td>Polished user action tracking, drop-off mapping, and duration dashboards.</td>
+                        <td>Advanced Demolytics tracking individual viewer paths and share trees.</td>
+                        <td>None. Figma offers zero developer or marketing telemetry out of the box.</td>
                     </tr>
                 </tbody>
             </table>
-
-            <h2>Direct Comparative Trade-offs</h2>
-
-            <h3>1. Arcade (The GTM Standard)</h3>
-            <div class="pro-con-grid">
-                <div class="pro-panel">
-                    <h4>Operational Advantages</h4>
-                    <ul>
-                        <li>Ultra-rapid deployment; build and launch annotated tours in under 15 minutes.</li>
-                        <li>Outstanding browser loading performance using optimized static assets.</li>
-                        <li>Simple, non-technical maintenance interface for quick content updates.</li>
-                    </ul>
-                </div>
-                <div class="con-panel">
-                    <h4>Operational Risks</h4>
-                    <ul>
-                        <li>Limited support for highly customized user input simulation.</li>
-                        <li>Lacks native, deep account-level buying committee identification.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>2. Consensus Presales Platform</h3>
-            <div class="pro-con-grid">
-                <div class="pro-panel">
-                    <h4>Operational Advantages</h4>
-                    <ul>
-                        <li>Surfaces the buyer committee by tracking viewer share paths.</li>
-                        <li>Adapts demo scenarios based on self-selected target personas.</li>
-                        <li>Native API syncs direct account interaction signals to Salesforce.</li>
-                    </ul>
-                </div>
-                <div class="con-panel">
-                    <h4>Operational Risks</h4>
-                    <ul>
-                        <li>Requires heavy up-front asset configuration and structural planning.</li>
-                        <li>Cost-prohibitive for simple awareness marketing templates.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>3. Figma Widget Engine</h3>
-            <div class="pro-con-grid">
-                <div class="pro-panel">
-                    <h4>Operational Advantages</h4>
-                    <ul>
-                        <li>Synchronous updates directly mirror the design workspace instantly.</li>
-                        <li>Maintains absolute design systems compliance across teams.</li>
-                        <li>Zero ongoing platform licensing costs.</li>
-                    </ul>
-                </div>
-                <div class="con-panel">
-                    <h4>Operational Risks</h4>
-                    <ul>
-                        <li>Severe loading times; blocks key rendering threads (hurts SEO/LCP).</li>
-                        <li>No guided tooltips or helper instructions for non-technical buyers.</li>
-                        <li>Complete absence of analytics feedback or user tracking metrics.</li>
-                    </ul>
-                </div>
-            </div>
         </section>
 
         <!-- SECTION 3: TECHNICAL STACK & CMS SPECS -->
@@ -510,7 +483,7 @@
                 <li><strong>Content Type:</strong> <code>InteractiveDemoBlock</code> (Custom Component).</li>
                 <li><strong>CMS Form Inputs:</strong>
                     <ul>
-                        <li><code>provider</code>: Dropdown field (<code>arcade</code> | <code>consensus</code>).</li>
+                        <li><code>provider</code>: Dropdown field (<code>arcade</code> | <code>superdemo</code> | <code>consensus</code>).</li>
                         <li><code>embedUrl</code>: Text validation field requiring secure HTTPS domain source.</li>
                         <li><code>facadeImage</code>: Media asset pointer for high-resolution web placeholder.</li>
                         <li><code>aspectRatio</code>: Dropdown locking element layout (<code>16:9</code> | <code>4:3</code>).</li>
@@ -538,15 +511,35 @@
         <!-- SECTION 4: GTM ACCELERATION AND STRATEGIC GAIN -->
         <section id="section-strategic-gtm" class="section-block">
             <span class="badge">Business Enablement</span>
-            <h1>Marketer Empowerment &amp; Speed-to-Market</h1>
-            <p>To meet executive timelines without burdening the engineering backlog, we recommend deploying a hybrid Arcade and Consensus GTM strategy.</p>
+            <h1>Single Tool Integration GTM Strategy</h1>
+            <p>To meet executive timelines without engineering bottlenecks, we recommend deploying a single, modular Contentful component framework. This allows product marketing to deploy and swap interactive tools in real time based on their respective deployment times.</p>
 
-            <h2>The dual marketing strategy designed for rapid activation:</h2>
+            <h2>GTM Timing Options Breakdown</h2>
             <ul>
-                <li><strong>Short-Term Speed (Arcade):</strong> Product Marketing Managers (PMMs) can build and publish Arcade tours in days. They do not need to coordinate with Presales, write complex logic, or wait for engineering sprints. Once base Vue.js template in Contentful is built, PMMs can roll out new product tours autonomously. <strong>Time-to-market: 1 week.</strong></li>
-                <li><strong>Long-Term Value (Consensus):</strong> Presales engineers can build comprehensive Consensus scenarios for our core, high-ticket offerings (like Attune EAM) at a deliberate pace. These are deep, structural assets that require tight CRM alignment. <strong>Time-to-market: 4-6 weeks.</strong></li>   
+                <li><strong>Immediate Launch (1-3 Days):</strong> Deploy **Arcade** or **Superdemo** walkthroughs instantly on core landing layers. Highly responsive and lightweight, authors can record and publish within hours.</li>
+                <li><strong>Strategic Pipeline Launch (4-6 Weeks):</strong> Transition high-intent product lanes to **Consensus** video branching networks. Focuses on late-stage qualification and enterprise sales enablement.</li>
             </ul>
-            <p>By deploying both, Octave achieves immediate visual impact and pipeline lift on high-traffic product pages today, while systematically building out a scaled, enterprise sales-enablement engine.</p>
+
+            <h2>Comparison of Top 2 GTM Fast-Launch Tools</h2>
+            <div class="pro-con-grid">
+                <div class="pro-panel">
+                    <h4>Arcade (Top Contender)</h4>
+                    <ul>
+                        <li><strong>Pro:</strong> Stunning modern zooming and panning visuals that capture buyer attention.</li>
+                        <li><strong>Pro:</strong> Rapid 15-minute generation speed with automated voiceover options.</li>
+                        <li><strong>Con:</strong> Deeper HTML data capture features are restricted to higher pricing tiers.</li>
+                    </ul>
+                </div>
+                <div class="con-panel">
+                    <h4>Superdemo (Alternative Option)</h4>
+                    <ul>
+                        <li><strong>Pro:</strong> Extremely low asset file weight, protecting page performance.</li>
+                        <li><strong>Pro:</strong> Straightforward configuration and easy Contentful field setups.</li>
+                        <li><strong>Con:</strong> Lacks some of the advanced visual zoom and animation styles found in Arcade.</li>
+                    </ul>
+                </div>
+            </div>
+
             <h2>Key Strategic Benefits</h2>
             <ul>
                 <li><strong>100% Development Decoupling:</strong> Marketing updates, updates paths, and swaps copy inside the CMS without engineering code changes.</li>
@@ -558,7 +551,7 @@
     </main>
 
     <footer>
-        <p>© 2026 WPP Enterprise Solutions. Octave's Product Demos Strategy</p>
+        <p>© 2026 Octave Intelligence plc. Internal Digital Architecture &amp; Strategy Blueprint.</p>
     </footer>
 
     <script>

@@ -1,4 +1,4 @@
-<html data-type="html" data-identifier="8f3b2591-ba18-47d3-9bc6-94672bc3ebcd" data-title="Octave Interactive Product Experience Framework" data-version="6" imagemodel="imagen-4"><head>
+<html data-type="html" data-identifier="8f3b2591-ba18-47d3-9bc6-94672bc3ebcd" data-title="Octave Interactive Product Experience Framework" data-version="10"><head>
     <style>
         :root {
             /* Octave Premium Light Design Tokens */
@@ -76,7 +76,7 @@
         .nav-btn {
             background: none;
             border: none;
-            color: var(--color-text-muted);
+            color: var(--text-muted);
             font-weight: 600;
             font-size: 0.85rem;
             text-transform: uppercase;
@@ -183,7 +183,7 @@
             font-weight: bold;
         }
 
-        /* Improved CSS Flexbox Flow Diagram Layout */
+        /* Block Diagram Layouts */
         .diagram-container {
             background-color: #F8FAFC;
             border: 1px solid var(--color-border-subtle);
@@ -341,38 +341,33 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <span>❖</span> octave.com / integrations
+                <span>❖</span> Octave
             </div>
             <nav class="nav-links">
-                <a href="#section-landscape" class="nav-btn">Framework Options</a>
-                <a href="#section-pros-cons" class="nav-btn">Evaluation Spec</a>
-                <a href="#section-vue-cms" class="nav-btn">Integration Specs</a>
-                <a href="#section-strategic-gtm" class="nav-btn">GTM Implementation</a>
+                <a href="#section-taxonomy" class="nav-btn">Demo Taxonomy</a>
+                <a href="#section-best-practices" class="nav-btn">Best Practices</a>
+                <a href="#section-strategy" class="nav-btn">Demo Strategy</a>
+                <a href="#section-comparisons" class="nav-btn">Evaluations</a>
+                <a href="#section-recommendations" class="nav-btn">Recommendations</a>
+                <a href="#section-strategic-gtm" class="nav-btn">GTM Delivery</a>
             </nav>
         </div>
     </header>
 
     <main>
 
-        <!-- SECTION 1: ARCHITECTURAL OPTIONS -->
-        <section id="section-landscape" class="section-block">
-            <span class="badge">Architecture Strategy</span>
-            <h1>Interactive Experience Integration Framework</h1>
-            <p><strong>Executive Directive:</strong> Transition the web estate from passive feature-listing templates to active, self-guided workflow models. The goal is to let prospects validate Octave platform capability (EAM, Aria Agentic Layer, Forte 3D) without sales onboarding friction.</p>
+        <!-- SECTION 1: THE DEMO TAXONOMY -->
+        <section id="section-taxonomy" class="section-block">
+            <span class="badge">Strategic Alignment</span>
+            <h1>Unified Interactive Experience Taxonomy</h1>
+            <p><strong>Executive Directive:</strong> Transition Octave's digital assets from static feature lists to interactive, experience-led walkthroughs. We establish a shared vocabulary to align product and engineering groups, define scoping boundaries, and maximize on-page conversions.</p>
 
             <h2>The Integration Candidates</h2>
             <ul>
-                <li><strong>Figma Design Sandbox:</strong> High-fidelity interaction layer designed to embed core layout structures directly from design workspaces.</li>
-                <li><strong>Consensus Automated Demos:</strong> Enterprise presales platform delivering personalized, multi-branching video interactive scenarios.</li>
                 <li><strong>Arcade Interactive Walkthroughs:</strong> Lightweight marketing browser-capture solution driving annotated product flows.</li>
-                <li><strong>Superdemo Interactive Tours:</strong> Modern and simple HTML-cloned product guides built for rapid web embeds and lightweight page performance.</li>
-            </ul>
-
-            <h2>Unified Component Positioning Strategy</h2>
-            <ul>
-                <li>Place components midway down target product pages to maximize visual value.</li>
-                <li>Position after core capability description, preceding analyst &amp; G2 verification cards.</li>
-                <li>Utilize a "Facade Pattern" wrapper to eliminate initial script loading overhead.</li>
+                <li><strong>Supademo Interactive Tours:</strong> Modern and simple HTML-cloned product guides built for rapid web embeds and lightweight page performance.</li>
+                <li><strong>Consensus Automated Demos:</strong> Enterprise presales platform delivering personalized, multi-branching video interactive scenarios.</li>
+                <li><strong>Figma Design Sandbox:</strong> High-fidelity interaction layer designed to embed core layout structures directly from design workspaces.</li>
             </ul>
 
             <h2>User Experience &amp; Lifecycle Flow Diagram</h2>
@@ -388,7 +383,7 @@
                     <div class="diagram-step-box">
                         <div class="diagram-node active-node">
                             <h4>2. Interactive Tour</h4>
-                            <p>User launches self-guided demo</p>
+                            <p>User launches self-guided demo tour</p>
                         </div>
                     </div>
                     <div class="diagram-arrow">➔</div>
@@ -407,12 +402,128 @@
                     </div>
                 </div>
             </div>
+
+            <h2>What We Mean By "Demo" ?</h2>
+            <p>Before choosing tools, we need shared language. Five different things are currently called "demos," and each has a different owner, effort level, and job. Naming them prevents scope creep and tells us what belongs on a product page versus elsewhere.</p>
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th>Type / Profile</th>
+                        <th>Definition</th>
+                        <th>User Length</th>
+                        <th>Business Objective</th>
+                        <th>Build Effort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight-blue"><strong>A — Zoomable Still</strong></td>
+                        <td>High-res screenshots expanding to full-screen on click with a use-case caption.</td>
+                        <td>Instant</td>
+                        <td>Enforces visual reality and rapid layout comprehension.</td>
+                        <td>Very Low</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-blue"><strong>B — Marketing Interactive</strong></td>
+                        <td>Short guided click-through of one core workflow; 2–4 key moments.</td>
+                        <td>30s - 2min</td>
+                        <td>Accelerates on-page engagement and top-of-funnel pipeline.</td>
+                        <td>Low - Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-blue"><strong>C — Self-Guided Exploration</strong></td>
+                        <td>Non-linear, user-driven tour with a sidebar menu to jump between key modules.</td>
+                        <td>2 - 5min</td>
+                        <td>Drives deep technical evaluation and self-serve product proof.</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td><strong>D — Technical Deep Demo</strong></td>
+                        <td>Comprehensive technical walkthroughs closer to training or documentation.</td>
+                        <td>10 - 30min</td>
+                        <td>Answers post-sale technical validation and integration parameters.</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td><strong>E — Overview Video</strong></td>
+                        <td>Narrated high-level feature reels or executive talking-head videos.</td>
+                        <td>1 - 3min</td>
+                        <td>Builds broad brand awareness and solutions introduction.</td>
+                        <td>Medium</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Direct Scoping Boundaries</h2>
+            <ul>
+                <li><strong>On-Page Website Project Scope:</strong> Restricted strictly to **Types A, B, and C** to maximize top-of-funnel pipeline and user comprehension on our high-traffic pages.</li>
+                <li><strong>Technical Demos Excluded:</strong> **Type D** is not an on-page product hero asset. It resides in the post-sales/support domain and should only be linked, not embedded.</li>
+            </ul>
         </section>
 
-        <!-- SECTION 2: 1:1 COMPARATIVE RIGOROUS ANALYSIS -->
-        <section id="section-pros-cons" class="section-block">
+        <!-- SECTION 2: BEST PRACTICES FOR B2B PRODUCT PAGES (2026) -->
+        <section id="section-best-practices" class="section-block">
+            <span class="badge">Standards &amp; Optimization</span>
+            <h1>Best Practices for B2B Demos</h1>
+            
+            <h2>Placement &amp; CTA Strategy</h2>
+            <ul>
+                <li><strong>High Conversion Lift:</strong> Embedded interactive tours convert at 4–6x the rate of static screenshots and lift time-on-page by 2–3x. Demos or their launch CTAs must reside above the fold.</li>
+                <li><strong>Direct Action CTAs:</strong> Use "Take a Tour" or "Explore" variants rather than soft "Learn More" copy.</li>
+                <li><strong>Persistent Access:</strong> Deploy a persistent "View / Book a Demo" CTA across product paths to close immediate conversion gaps, regardless of immediate demo asset readiness.</li>
+            </ul>
+
+            <h2>Length &amp; Structural Architecture</h2>
+            <ul>
+                <li><strong>Impact-First Flows:</strong> Highest completion performance stems from 1–6 step flows built around 2–4 core "aha" moments. Avoid feature checklists; ensure quick visual value within 60 seconds.</li>
+                <li><strong>Welcoming Context:</strong> Utilize a brief welcome modal to establish user context (leveraged by 72% of top-converting B2B demos).</li>
+                <li><strong>Non-Linear Options:</strong> Supply technical evaluators with a sidebar checklist/menu to jump directly to specific features rather than forcing linear paths.</li>
+            </ul>
+
+            <h2>Gating &amp; Conversion Logic</h2>
+            <ul>
+                <li><strong>Ungated Page Experiences:</strong> Keep on-page product tours 100% free of gates. Capture contact information only after value is proven, or pass to the main site form container.</li>
+                <li><strong>Decoupled Lead Handling:</strong> The demo acts purely as a visual canvas. Leads are processed via Octave’s native site forms and routed to Salesforce, preserving accurate campaign attribution.</li>
+                <li><strong>Clear Destination Paths:</strong> Never dead-end. Chain final demo frames to active next steps, such as pricing, custom live booking, or related workspace features.</li>
+            </ul>
+
+            <h2>Technical &amp; SEO Performance</h2>
+            <ul>
+                <li><strong>Web Components Over Iframes:</strong> Standard iframe wraps carry heavy loading speeds. Benchmarks show Web Component integrations load ~4.5x faster (21ms vs 116ms).</li>
+                <li><strong>Lazy-Loading Mandate:</strong> Force lazy-loading for any iframe elements. Protecting page speed and LCP scores is a strict requirement to guard organic rankings.</li>
+                <li><strong>Dual Deployment:</strong> Deliver every experience as both a responsive on-page embed and a standalone layout URL stripped of global site navigation for target sales outreach.</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 3: THE OCTAVE DEMO STRATEGY -->
+        <section id="section-strategy" class="section-block">
+            <span class="badge">Execution Framework</span>
+            <h1>The Octave's Demo Strategy</h1>
+            
+            <h2>Core Messaging Thesis</h2>
+            <ul>
+                <li><strong>Lead with the Outcome, Not the Interface:</strong> Our systems are workflow-intensive, not simply visually slick. Demos must highlight the job-to-be-done first ("Saves X hours"), using the interface screen captures strictly as supporting evidence. High-quality product copy must precede demo implementation.</li>
+            </ul>
+
+            <h2>Phased Delivery Roadmap (Fidelity vs. Coverage)</h2>
+            <ul>
+                <li><strong>🟢 Phase 0 — Near-Universal, Low Lift (Immediate):</strong> Deploy lightweight native lightbox zoom components on in-product stills, paired with drag-to-pan and use-case captions. Add a persistent "View / Book a Demo" CTA across all pages. Requires zero third-party licensing fees.</li>
+                <li><strong>🟡 Phase 1 — Hero Products (Premium Walks):</strong> Embed rich Type B (walkthroughs) and Type C (non-linear explorer) interactive tours across the top 10–12 high-traffic products. Standalone links are simultaneously generated for direct sales and email distribution.</li>
+                <li><strong>🔴 Phase 2 — Selective Depth &amp; Customization:</strong> Introduce campaign-specific, persona-focused, or localized demo variants only when justified by explicit pipeline opportunities. Repurpose core assets into sales decks and training courses.</li>
+            </ul>
+
+            <h2>Success Validation Framework</h2>
+            <ul>
+                <li><strong>Primary Pipeline KPIs:</strong> Influenced pipeline value (demo touch to opportunity pipeline) and on-page form conversion rates.</li>
+                <li><strong>Diagnostic Metrics:</strong> Demo initialization rates, drop-off per step, and standalone sharing link clicks.</li>
+                <li><strong>Control Group Comparison:</strong> Maintain systematic comparative analytics (demo-enabled pages vs. flat pages) to prove bottom-line performance.</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 4: 1:1 COMPARATIVE RIGOROUS ANALYSIS -->
+        <section id="section-comparisons" class="section-block">
             <span class="badge">Rigorous Evaluation</span>
-            <h1>Rigorous 1:1 Platform Comparison</h1>
+            <h1>Platforms Comparison</h1>
             <p>Evaluating each interactive demo platform across all critical operational parameters to establish clear product-fit guidelines.</p>
 
             <table class="matrix-table">
@@ -420,7 +531,7 @@
                     <tr>
                         <th>Comparison Aspect</th>
                         <th>Arcade (Walkthroughs)</th>
-                        <th>Superdemo (Interactive Tours)</th>
+                        <th>Supademo (Interactive Tours)</th>
                         <th>Consensus (Presales Video)</th>
                         <th>Figma Widget (Design Canvas)</th>
                     </tr>
@@ -434,81 +545,101 @@
                         <td>Early design iteration, prototype validation, and internal visual review cycles.</td>
                     </tr>
                     <tr>
-                        <td><strong>Time to Market</strong></td>
+                        <td><strong>Desktop-app click capture</strong></td>
+                        <td><strong>Strong (✅)</strong>. Hybrid screenshot and recording mode capturing native flows.</td>
+                        <td><strong>Strong (✅)</strong>. Native asset rendering for rapid desktop app emulation.</td>
+                        <td><strong>Video/Branched Only (🟡)</strong>. Relies on importing produced desktop walk videos.</td>
+                        <td><strong>Manual Rebuild (🔴)</strong>. Requires manually designing layout flows step-by-step.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Time to Market / Build Speed</strong></td>
                         <td><strong>1 Day</strong>. Easy browser extension recording and instant publishing.</td>
                         <td><strong>2 - 3 Days</strong>. Straightforward browser recording and copy creation.</td>
                         <td><strong>4 - 6 Weeks</strong>. Requires scripting, video creation, and personalization routing.</td>
                         <td><strong>1 Day</strong>. Direct export or layout sharing from active project workspaces.</td>
                     </tr>
                     <tr>
-                        <td><strong>Contentful Integration</strong></td>
-                        <td>Extremely Simple. Pass-through CDN iframe mapping within CMS fields.</td>
-                        <td>Extremely Simple. Out-of-the-box responsive embed code configurations.</td>
-                        <td>Medium. Requires secure iframe structures with parameters forwarding.</td>
-                        <td>Complex. Needs manual API key bindings or custom CSS wrappers.</td>
+                        <td><strong>Marketing Polish (Type B)</strong></td>
+                        <td><strong>Best (✅)</strong>. Highly refined panning, micro-zooming, and visual annotations.</td>
+                        <td><strong>Good (🟡)</strong>. Clean, consistent static steps with simple annotations.</td>
+                        <td><strong>Video-centric (🟡)</strong>. Dynamic but restricted to pre-produced video panels.</td>
+                        <td><strong>Full Control (✅)</strong>. Bound entirely to layout vector style outputs.</td>
                     </tr>
                     <tr>
-                        <td><strong>Initial Load Weight</strong></td>
-                        <td>Negligible. Highly compressed image strings load via media CDNs.</td>
-                        <td>Low. Extremely fast optimized media loading speeds.</td>
-                        <td>Low. Content delivers via structured, lightweight video-streaming frames.</td>
-                        <td>Extremely Heavy. Must parse and load Figma's massive workspace engine.</td>
+                        <td><strong>Self-guided + menu (Type C)</strong></td>
+                        <td><strong>Fully Supported (✅)</strong>. Built-in sidebar and branching flow maps.</td>
+                        <td><strong>Fully Supported (✅)</strong>. Direct navigation sidebar options.</td>
+                        <td><strong>Fully Supported (✅)</strong>. Guided video-playlist menus.</td>
+                        <td><strong>Limited (🟡)</strong>. Can design link jumps, but lacks automated sidebar states.</td>
                     </tr>
                     <tr>
-                        <td><strong>CRM Integration</strong></td>
-                        <td>Standard integrations (HubSpot, webhooks) on growth tiers.</td>
-                        <td>Standard CRM push connections and tracking webhook arrays.</td>
-                        <td>Deep CRM sync (Salesforce, Marketo) mapping interactions directly to sales boards.</td>
-                        <td>None. No mechanism to pass interactions to external pipelines.</td>
+                        <td><strong>Ungated Embed</strong></td>
+                        <td><strong>Supported (✅)</strong>. Standard code iframe and Web Component blocks.</td>
+                        <td><strong>Supported (✅)</strong>. Native, ultra-light inline script overlays.</td>
+                        <td><strong>Built for Gating (🟡)</strong>. Requires custom forms or skips to initiate.</td>
+                        <td><strong>Supported (✅)</strong>. Basic inline vector space frame options.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Decoupled Conversion</strong></td>
+                        <td><strong>Supported (✅)</strong>. Links smoothly call standard site forms.</td>
+                        <td><strong>Supported (✅)</strong>. Zero integration code footprint required.</td>
+                        <td><strong>Weak (🟡)</strong>. Bypasses its core built-in lead-capture strength.</td>
+                        <td><strong>Supported (✅)</strong>. Direct link mapping from components.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Embed Performance</strong></td>
+                        <td><strong>Verify (🟡)</strong>. Offers native fast Web Component wrappers.</td>
+                        <td><strong>Verify (🟡)</strong>. Highly optimized image sequences loading via CDN.</td>
+                        <td><strong>Verify (🟡)</strong>. Needs lazy-load treatment to bypass script payload.</td>
+                        <td><strong>Heavy (🔴)</strong>. Demands substantial memory allocation on client browsers.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Embed + Standalone Link</strong></td>
+                        <td><strong>Fully Supported (✅)</strong>. Multi-format export in a single click.</td>
+                        <td><strong>Fully Supported (✅)</strong>. Generates clean standalone pages immediately.</td>
+                        <td><strong>Fully Supported (✅)</strong>. Connects direct links via DemoBoards.</td>
+                        <td><strong>Limited (🟡)</strong>. Share URLs load heavy, confusing design canvases.</td>
                     </tr>
                     <tr>
                         <td><strong>Analytics</strong></td>
-                        <td>Basic visitor insights: clicks, step drop-off, and completion statistics.</td>
-                        <td>Polished user action tracking, drop-off mapping, and duration dashboards.</td>
-                        <td>Advanced Demolytics tracking individual viewer paths and share trees.</td>
-                        <td>None. Figma offers zero developer or marketing telemetry out of the box.</td>
+                        <td><strong>Supported (✅)</strong>. Clear visual completion charts and clicks.</td>
+                        <td><strong>Supported (✅)</strong>. Tracks basic reader steps and timing.</td>
+                        <td><strong>Deepest (✅)</strong>. Tracks individual buying group users and sharing paths.</td>
+                        <td><strong>None (🔴)</strong>. Requires custom coding or external trackers.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Standalone Link Security</strong></td>
+                        <td><strong>Anonymous Access</strong>: Generates simple public URLs accessible to anyone without gates.</td>
+                        <td><strong>Timed / Expiring Links</strong>: Supports generating secure standalone URLs with hard expiration dates.</td>
+                        <td><strong>Tokenized / Account-Specific</strong>: Generates unique, secure buyer board links with optional 2FA.</td>
+                        <td><strong>Internal Links Only</strong>: Relies on Figma account-level permissions or public open file URL access.</td>
                     </tr>
                 </tbody>
             </table>
-        </section>
 
-        <!-- SECTION 3: TECHNICAL STACK & CMS SPECS -->
-        <section id="section-vue-cms" class="section-block">
-            <span class="badge">Dev Engineering</span>
-            <h1>VueJS &amp; Contentful Implementation Specs</h1>
-            <p>For <strong>Octave</strong>, we establish a standardized component schema to keep design templates safe, maintain performance, and avoid code redeployments.</p>
-
-            <h2>Contentful Content Schema Definition</h2>
+            <h3>What This Tells Us</h3>
             <ul>
-                <li><strong>Content Type:</strong> <code>InteractiveDemoBlock</code> (Custom Component).</li>
-                <li><strong>CMS Form Inputs:</strong>
-                    <ul>
-                        <li><code>provider</code>: Dropdown field (<code>arcade</code> | <code>superdemo</code> | <code>consensus</code>).</li>
-                        <li><code>embedUrl</code>: Text validation field requiring secure HTTPS domain source.</li>
-                        <li><code>facadeImage</code>: Media asset pointer for high-resolution web placeholder.</li>
-                        <li><code>aspectRatio</code>: Dropdown locking element layout (<code>16:9</code> | <code>4:3</code>).</li>
-                    </ul>
-                </li>
+                <li><strong>The Great Decoupling Equalizer:</strong> Our design path of decoupled conversion is the ultimate selector. Consensus's biggest enterprise advantages—native form routing, automated lead captures, and deep, role-specific buying committee alerts—are exactly the things we have chosen **not** to rely on the demo tool for on the core website.</li>
+                <li><strong>Arcade &amp; Supademo Win the Race:</strong> Because we bypass native lead processing, the selection criteria shifts entirely to rapid production, marketing-grade visual polish, and page weight. This rewards **Arcade** and **Supademo** directly for on-page product embeds.</li>
+                <li><strong>Consensus Retains a Critical Role:</strong> Consensus is highly valuable, but not on our public product pages. It should be used for Type D detailed support demos and target, sales-led account outreach where its deep committee tracking metrics can shine.</li>
             </ul>
-
-            <h2>Vue.js Lazy-Rendering Optimization (Facade Pattern)</h2>
-            <p>To secure our Core Web Vitals, the browser must not fetch the dynamic iframe during initial page parsing. We load a lightweight image facade that hot-loads the target interactive frame on demand:</p>
-
-            <div class="code-container">
-<span class="code-key">const</span> formattedUrl = computed(() =&gt; {
-  <span class="code-key">const</span> url = <span class="code-key">new</span> URL(props.embedUrl);
-  <span class="code-key">const</span> params = <span class="code-key">new</span> URLSearchParams(window.location.search);
-  <span class="code-key">const</span> trackingTags = [<span class="code-str">'utm_source'</span>, <span class="code-str">'utm_medium'</span>, <span class="code-str">'utm_campaign'</span>];
-  
-  <span class="code-key">trackingTags.forEach</span>(tag =&gt; {
-    <span class="code-key">if</span> (params.has(tag)) url.searchParams.set(tag, params.get(tag));
-  });
-  <span class="code-key">return</span> url.toString();
-});
-            </div>
         </section>
 
-        <!-- SECTION 4: GTM ACCELERATION AND STRATEGIC GAIN -->
+        <!-- SECTION 5: STRATEGIC RECOMMENDATIONS -->
+        <section id="section-recommendations" class="section-block">
+            <span class="badge">Operational POV</span>
+            <h1>Strategic Recommendations</h1>
+            <ul>
+                <li><strong>Standardize Vocabulary:</strong> Adopt the Type A–E demo taxonomy across engineering, sales, and marketing teams to establish clear expectations and prevent project scope creep.</li>
+                <li><strong>Launch Phase 0 Immediately:</strong> Build and ship the native zoomable-stills component with a persistent "Book a Demo" CTA. This de-risks the program by providing instant value with zero vendor fees.</li>
+                <li><strong>Standardize on Arcade / Supademo for Phase 1:</strong> Select Arcade as our primary on-page hero walkthrough tool for its premium visual zoom and pan polish, with Supademo serving as a highly performant and economical alternative.</li>
+                <li><strong>Reposition Consensus:</strong> Move Consensus off high-traffic product pages and focus its use strictly on specialized target account plays and technical Type D walkthroughs where its tracking has high ROI.</li>
+                <li><strong>Enforce Embed Performance Guards:</strong> Establish page-loading performance as a hard gate. Require web components or lazy-loaded frames to protect organic SEO scores.</li>
+                <li><strong>Verify the New Consensus Editor:</strong> Monitor Consensus’s upcoming editor release. If creation time drops significantly, re-evaluate its role for public marketing pages.</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 6: GTM ACCELERATION AND STRATEGIC GAIN -->
         <section id="section-strategic-gtm" class="section-block">
             <span class="badge">Business Enablement</span>
             <h1>Single Tool Integration GTM Strategy</h1>
@@ -516,7 +647,7 @@
 
             <h2>GTM Timing Options Breakdown</h2>
             <ul>
-                <li><strong>Immediate Launch (1-3 Days):</strong> Deploy **Arcade** or **Superdemo** walkthroughs instantly on core landing layers. Highly responsive and lightweight, authors can record and publish within hours.</li>
+                <li><strong>Immediate Launch (1-3 Days):</strong> Deploy **Arcade** or **Supademo** walkthroughs instantly on core landing layers. Highly responsive and lightweight, authors can record and publish within hours.</li>
                 <li><strong>Strategic Pipeline Launch (4-6 Weeks):</strong> Transition high-intent product lanes to **Consensus** video branching networks. Focuses on late-stage qualification and enterprise sales enablement.</li>
             </ul>
 
@@ -525,17 +656,17 @@
                 <div class="pro-panel">
                     <h4>Arcade (Top Contender)</h4>
                     <ul>
-                        <li><strong>Pro:</strong> Stunning modern zooming and panning visuals that capture buyer attention.</li>
-                        <li><strong>Pro:</strong> Rapid 15-minute generation speed with automated voiceover options.</li>
+                        <li><strong>Pro:</strong> High-end cinematic zooming, panning, and micro-animations capture user attention immediately.</li>
+                        <li><strong>Pro:</strong> Extremely rapid build times and native, optimized web component embeds.</li>
                         <li><strong>Con:</strong> Deeper HTML data capture features are restricted to higher pricing tiers.</li>
                     </ul>
                 </div>
                 <div class="con-panel">
-                    <h4>Superdemo (Alternative Option)</h4>
+                    <h4>Supademo (Alternative Option)</h4>
                     <ul>
-                        <li><strong>Pro:</strong> Extremely low asset file weight, protecting page performance.</li>
-                        <li><strong>Pro:</strong> Straightforward configuration and easy Contentful field setups.</li>
-                        <li><strong>Con:</strong> Lacks some of the advanced visual zoom and animation styles found in Arcade.</li>
+                        <li><strong>Pro:</strong> Most cost-effective entry point with rapid, intuitive browser-based step generation.</li>
+                        <li><strong>Pro:</strong> Provides highly performant, lightweight page embeds protecting LCP scores.</li>
+                        <li><strong>Con:</strong> Lacks some of the refined cinematic pan/zoom movement styles found in Arcade.</li>
                     </ul>
                 </div>
             </div>
@@ -546,12 +677,40 @@
                 <li><strong>Maximum Performance Security:</strong> Lazy-loaded code architecture maintains PageSpeed scores and protects organic rank visibility.</li>
                 <li><strong>Attribution Preservation:</strong> Parent-to-iframe parameter passing keeps tracking, UTM sources, and analytics logs intact.</li>
             </ul>
+
+            <h2>Immediate Next Steps</h2>
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th>Step Action</th>
+                        <th>Assigned Functional Owner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Confirm embed loading methods and perform active page-speed audits for Arcade and Supademo.</td>
+                        <td class="highlight-blue">Web / Development Team</td>
+                    </tr>
+                    <tr>
+                        <td>Establish and lock down the primary list of high-traffic hero products and confirm current content readiness.</td>
+                        <td class="highlight-blue">Octave Core Marketing</td>
+                    </tr>
+                    <tr>
+                        <td>Request early access and verify the interface features of the upcoming new Consensus editor.</td>
+                        <td class="highlight-blue">Octave Team / Consensus Presales</td>
+                    </tr>
+                    <tr>
+                        <td>Initiate the custom development sprint for the Phase 0 lightbox zoom asset component.</td>
+                        <td class="highlight-blue">Web / Development Team</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
     </main>
 
     <footer>
-        <p>© 2026 Octave Intelligence plc. Internal Digital Architecture &amp; Strategy Blueprint.</p>
+        <p>© 2026 Octave Intelligence plc. Internal Digital Architecture &amp; Strategy Blueprint. Prepared by Ogilvy.</p>
     </footer>
 
     <script>
